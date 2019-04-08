@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Prepare_WorldBank"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{BF57E2BB-D9EB-49E5-844C-7D92A1AEA46F}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{98EA697F-4E15-4CA5-89DF-F9EBF25BF4F0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -47,11 +47,28 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="131,42"
           Id="Package\Script Task"
           TopLeft="233,226" />
+        <AnnotationLayout
+          Text="Prepare_WorldBank"
+          ParentId="Package"
+          Size="186,46"
+          Id="5222131f-073b-4526-af83-85a876ddf291"
+          TopLeft="212,112">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="18"
+              Color="#FFFFFF00">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
