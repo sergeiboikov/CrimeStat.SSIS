@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">EPRUSARW1252</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6CWtB3zA8Ua0zzl9MldzsgAAAAACAAAAAAADZgAAwAAAABAAAAAQNWYWJrYDu/m2n0wcLFbzAAAAAASAAACgAAAAEAAAAJk7EPOaHAwcztz6zQ3ZXXKIAAAA0nHOMollbG/ofHbYNZuhYdB0UG3Kc9JY0HuL1ujpYAcI/iotnfb7a8m6sBy6A3WyVkocK9t5yfad50eEOIfYV56ipkBo9AnMXn0wfypL1Oo4DfPKs2rhC4IgYQGTXKAW7RuyuL4y94NXrNEy5waBP/N9Yyxp+nCwZPkOYzGukIGlu4yU2iO0RxQAAAAY02IIns9775qOjLfQe1xemQVG3g==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6CWtB3zA8Ua0zzl9MldzsgAAAAACAAAAAAADZgAAwAAAABAAAABjZTAfuqM4oYiDlVkwrf87AAAAAASAAACgAAAAEAAAABTowetswhgt7XKXk+plZByIAAAAvhobPiW7dTZW92wWncINwihwKkTvvZa6UfcVSDs26Vct0kCS4A11Z//EKahkPENG3PmHB3M60U2+D7KcTCoXms2QKjf4+9uv5FqsLO+2sMNfHf50XiIXDJiqLB7Dj020FDxPFmSwcx0RNj8Tv7o7gYmGfMc/G0fBNwgUHAir85DaUNC6fEP4+xQAAACj1cVq39//xviK8xIz+eO6pSXiqg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -36,6 +36,7 @@
           <SSIS:Package SSIS:Name="Staging_Load_Countries.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Prepare_Countries.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Prepare_UNCrime.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Staging_Transform_Country.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="CrimeStatDWH.conmgr" />
@@ -759,6 +760,23 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{808D054F-A722-4276-AC50-12BD728A4290}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Staging_Transform_Country.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{C6737CBC-1122-4B61-A846-663F998E866F}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Staging_Transform_Country</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">3</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{E2DE2C8E-746A-48B0-A5E0-FFFACBD9E4EC}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
