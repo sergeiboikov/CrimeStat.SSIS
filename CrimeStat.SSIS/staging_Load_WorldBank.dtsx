@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Load_WorldBank"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{D8C84E69-E21B-443E-AE06-5F3C33B0F350}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{D9E1D6CA-1E49-4768-ABA0-A47D8C245929}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3289,7 +3289,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="366,42"
           Id="Package\SEQC Load data to staging\DFT Lood from File to staging WorldBankPopulation_untyped"
@@ -3300,7 +3300,7 @@
           PanelSize="376,122"
           Size="376,165"
           Id="Package\SEQC Load data to staging"
-          TopLeft="299,267" />
+          TopLeft="299,284" />
         <NodeLayout
           Size="328,42"
           Id="Package\SEQC Preparation\SQL Truncate staging WorldBankPopulation_untyped"
@@ -3311,13 +3311,13 @@
           PanelSize="400,123"
           Size="400,166"
           Id="Package\SEQC Preparation"
-          TopLeft="293,39" />
+          TopLeft="293,56" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="490,205">
+          TopLeft="490,222">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,62"
               Start="0,0"
               End="0,54.5">
@@ -3334,6 +3334,23 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Staging_Load_WorldBank"
+          ParentId="Package"
+          Size="232,46"
+          Id="5232a776-1c27-4e98-957c-f0b4f7ebb9dd"
+          TopLeft="386,5">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="18"
+              Color="#FFFFFF00">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
