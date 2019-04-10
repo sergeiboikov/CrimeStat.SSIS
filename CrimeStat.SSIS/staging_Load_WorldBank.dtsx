@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Load_WorldBank"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{D9E1D6CA-1E49-4768-ABA0-A47D8C245929}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{75DF4378-6D55-4814-A499-0BEA71EC7086}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -21,6 +21,8 @@
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{58D0BFFD-B8CA-47FB-BF51-5BDEAA91B247}"
       DTS:ObjectName="FFC_WorldBank">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::CrimeStatETLWorkingFolder] + "\\CrimeStat.Source.WorldBank\\WorldBankPopulation.csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -3358,21 +3360,21 @@
     design-time-name="Package\SEQC Load data to staging\DFT Lood from File to staging WorldBankPopulation_untyped">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="212,42"
-          Id="Package\SEQC Load data to staging\DFT Lood from File to staging WorldBankPopulation_untyped\FFS World Bank Population1"
-          TopLeft="260,61" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="177,42"
           Id="Package\SEQC Load data to staging\DFT Lood from File to staging WorldBankPopulation_untyped\OLE DB Destination1"
           TopLeft="280,179" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\SEQC Load data to staging\DFT Lood from File to staging WorldBankPopulation_untyped\FFS World Bank Population1"
+          TopLeft="260,61" />
         <EdgeLayout
           Id="Package\SEQC Load data to staging\DFT Lood from File to staging WorldBankPopulation_untyped.Paths[Flat File Source Output]"
           TopLeft="367.25,103">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,76"
               Start="0,0"
               End="0,68.5">

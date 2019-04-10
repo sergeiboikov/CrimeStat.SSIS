@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Transform_UNCrime"
   DTS:PackageType="5"
-  DTS:VersionBuild="43"
-  DTS:VersionGUID="{6E38386B-4B89-49CB-A01B-DE88D3D4A7B2}">
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{4020599F-B867-4E64-AF11-0D6F611C9391}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -198,13 +198,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                          name="Expression">[REPLACE]([REPLACE]([RIGHT](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]},[FINDSTRING]([REVERSE](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]}),"\\",1) - 1),".csv",""),"_"," ") != "serious assault"</property>
+                          name="Expression">[REPLACE]([REPLACE](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]},".csv",""),"_"," ") != "serious assault"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Specifies the friendly version of the expression. This expression version uses column names."
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACE(REPLACE(RIGHT(FileName,FINDSTRING(REVERSE(FileName),"\\",1) - 1),".csv",""),"_"," ") != "serious assault"</property>
+                          name="FriendlyExpression">REPLACE(REPLACE(FileName,".csv",""),"_"," ") != "serious assault"</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -226,13 +226,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                          name="Expression">[REPLACE]([REPLACE]([RIGHT](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]},[FINDSTRING]([REVERSE](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]}),"\\",1) - 1),".csv",""),"_"," ") == "serious assault"</property>
+                          name="Expression">[REPLACE]([REPLACE](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]},".csv",""),"_"," ") == "serious assault"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Specifies the friendly version of the expression. This expression version uses column names."
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACE(REPLACE(RIGHT(FileName,FINDSTRING(REVERSE(FileName),"\\",1) - 1),".csv",""),"_"," ") == "serious assault"</property>
+                          name="FriendlyExpression">REPLACE(REPLACE(FileName,".csv",""),"_"," ") == "serious assault"</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -524,9 +524,9 @@
                           name="Country" />
                         <externalMetadataColumn
                           refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[Count]"
-                          dataType="wstr"
-                          length="255"
-                          name="Count" />
+                          dataType="numeric"
+                          name="Count"
+                          precision="20" />
                         <externalMetadataColumn
                           refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[Rate]"
                           dataType="numeric"
@@ -1238,7 +1238,7 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="442,184"
+          PanelSize="442,185"
           Size="442,228"
           Id="Package\SEQC Transform data in staging"
           TopLeft="219,306" />
@@ -1294,6 +1294,10 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped"
           TopLeft="97.9242424242424,69.6666666666667" />
         <NodeLayout
+          Size="228,42"
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed"
+          TopLeft="66.1060606060606,385.984848484849" />
+        <NodeLayout
           Size="203,42"
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault"
           TopLeft="110.333333333333,151.666666666667" />
@@ -1305,6 +1309,28 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
           Size="121,42"
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All"
           TopLeft="116.060606060606,279.484848484848" />
+        <EdgeLayout
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Union All Output 1]"
+          TopLeft="178.333333333333,321.484848484848">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,64.5000000000001"
+              Start="0,0"
+              End="0,57.0000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.0000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Serious_assault]"
           TopLeft="244.333333333333,193.666666666667">
@@ -1342,30 +1368,6 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[AllFiles]"
-          TopLeft="177.94696969697,193.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,85.8181818181818"
-              Start="0,0"
-              End="0,78.3181818181818">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,78.3181818181818" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-72.8398046875,33.3544034090909,145.679609375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[OLE DB Source Output]"
           TopLeft="214.878787878788,111.666666666667">
           <EdgeLayout.Curve>
@@ -1387,10 +1389,6 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="228,42"
-          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed"
-          TopLeft="66.1060606060606,385.984848484849" />
         <EdgeLayout
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Derived Column Output]"
           TopLeft="327.333333333333,299.757575757576">
@@ -1414,25 +1412,27 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Union All Output 1]"
-          TopLeft="178.333333333333,321.484848484848">
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[AllFiles]"
+          TopLeft="177.94696969697,193.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,64.5000000000001"
+              EndConnector="0,85.8181818181818"
               Start="0,0"
-              End="0,57.0000000000001">
+              End="0,78.3181818181818">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.0000000000001" />
+                    End="0,78.3181818181818" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-72.8398046875,33.3544034090909,145.679609375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1440,6 +1440,19 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

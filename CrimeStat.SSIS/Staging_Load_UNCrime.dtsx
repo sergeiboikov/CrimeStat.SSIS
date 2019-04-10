@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Load_UNCrime"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{38F5506F-C103-4F2B-98DA-D8696F67E478}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{D7280059-8D42-4EFA-87B7-0274F1B1D655}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -22,7 +22,7 @@
       DTS:DTSID="{1A463F72-F4FD-4954-B14C-FA119A6BA692}"
       DTS:ObjectName="FFC_UNCrime">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">(DT_WSTR,255)@[User::currentUNCrimeFileName]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::CrimeStatETLWorkingFolder] + "\\CrimeStat.Source.UNCrime\\ConvertedToCSV\\" + (DT_WSTR,255)@[User::currentUNCrimeFileName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -101,7 +101,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="currentUNCrimeFileName">
       <DTS:VariableValue
-        DTS:DataType="8">D:\GIT\CrimeStat.Project\CrimeStat.Sources\CrimeStat.Source.UNCrime\ConvertedToCSV\burglary.csv</DTS:VariableValue>
+        DTS:DataType="8">burglary.csv</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -134,7 +134,7 @@
                 <FEFEProperty
                   FileSpec="*.csv" />
                 <FEFEProperty
-                  FileNameRetrievalType="0" />
+                  FileNameRetrievalType="1" />
                 <FEFEProperty
                   Recurse="0" />
               </ForEachFileEnumeratorProperties>
@@ -678,8 +678,8 @@
           <DTS:ForEachVariableMappings>
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{8A2A177F-9128-4EF2-B98E-78B43F41BE1B}"
-              DTS:ObjectName="{8A2A177F-9128-4EF2-B98E-78B43F41BE1B}"
+              DTS:DTSID="{ACA952B0-484E-40C6-8ECB-9271B3E46C0D}"
+              DTS:ObjectName="{ACA952B0-484E-40C6-8ECB-9271B3E46C0D}"
               DTS:ValueIndex="0"
               DTS:VariableName="User::currentUNCrimeFileName" />
           </DTS:ForEachVariableMappings>
@@ -739,7 +739,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="308,42"
           Id="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped"
@@ -774,7 +774,7 @@
           TopLeft="433,263">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,75"
               Start="0,0"
               End="0,67.5">
@@ -815,7 +815,7 @@
     design-time-name="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="158,42"
           Id="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file"
@@ -847,9 +847,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -871,9 +869,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

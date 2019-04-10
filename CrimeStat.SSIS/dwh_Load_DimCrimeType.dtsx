@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="dwh_Load_DimCrimeType"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{2226CCE9-9C7A-4406-A4B0-E528FC8469F0}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{3795A9FC-C44E-4C52-BAF4-5C26111F5165}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -211,13 +211,13 @@
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">[REPLACE]([REPLACE]([RIGHT](#{Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\OLESRC Staging_UNCrime_typed.Outputs[OLE DB Source Output].Columns[FileName]},[FINDSTRING]([REVERSE](#{Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\OLESRC Staging_UNCrime_typed.Outputs[OLE DB Source Output].Columns[FileName]}),"\\",1) - 1),".csv",""),"_"," ")</property>
+                              name="Expression">[REPLACE]([REPLACE](#{Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\OLESRC Staging_UNCrime_typed.Outputs[OLE DB Source Output].Columns[FileName]},".csv",""),"_"," ")</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">REPLACE(REPLACE(RIGHT(FileName,FINDSTRING(REVERSE(FileName),"\\",1) - 1),".csv",""),"_"," ")</property>
+                              name="FriendlyExpression">REPLACE(REPLACE(FileName,".csv",""),"_"," ")</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -1100,14 +1100,6 @@ FROM [staging].[UNCrime_typed]</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="351,42"
-          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\Merge Join CrimeTypeNameSRC and CrimeTypeNameDST"
-          TopLeft="298,465" />
-        <NodeLayout
-          Size="215,42"
-          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\OLEDST dwh_DimCrimeType"
-          TopLeft="373,709" />
-        <NodeLayout
           Size="208,42"
           Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\Sort SRC Crime Type Name"
           TopLeft="121,333" />
@@ -1116,6 +1108,22 @@ FROM [staging].[UNCrime_typed]</property>
           Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\OLESRC Staging_UNCrime_typed"
           TopLeft="106,61" />
         <NodeLayout
+          Size="272,42"
+          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\DER Upper first letter in CrimeTypeName"
+          TopLeft="87,244" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\OLESRC dwh_DimCrimeType"
+          TopLeft="427,58" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\OLEDST dwh_DimCrimeType"
+          TopLeft="373,709" />
+        <NodeLayout
+          Size="351,42"
+          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\Merge Join CrimeTypeNameSRC and CrimeTypeNameDST"
+          TopLeft="298,465" />
+        <NodeLayout
           Size="155,42"
           Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\Conditional Split"
           TopLeft="401,565" />
@@ -1123,66 +1131,6 @@ FROM [staging].[UNCrime_typed]</property>
           Size="180,42"
           Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\DER CrimeTypeName"
           TopLeft="128,161" />
-        <NodeLayout
-          Size="215,42"
-          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\OLESRC dwh_DimCrimeType"
-          TopLeft="427,58" />
-        <EdgeLayout
-          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType.Paths[Sort Output]"
-          TopLeft="225,375">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="191.333333333333,90"
-              Start="0,0"
-              End="191.333333333333,82.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,49.7549631310267" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,49.7549631310267"
-                    Point2="0,53.7549631310267"
-                    Point3="4,53.7549631310267" />
-                  <mssgle:LineSegment
-                    End="187.333333333333,53.7549631310267" />
-                  <mssgle:CubicBezierSegment
-                    Point1="187.333333333333,53.7549631310267"
-                    Point2="191.333333333333,53.7549631310267"
-                    Point3="191.333333333333,57.7549631310267" />
-                  <mssgle:LineSegment
-                    End="191.333333333333,82.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType.Paths[OLE DB Source Output1]"
-          TopLeft="532.583333333333,100">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,365"
-              Start="0,0"
-              End="0,357.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,357.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType.Paths[OLE DB Source Output]"
           TopLeft="220.75,103">
@@ -1251,10 +1199,28 @@ FROM [staging].[UNCrime_typed]</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="272,42"
-          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\DER Upper first letter in CrimeTypeName"
-          TopLeft="87,244" />
+        <EdgeLayout
+          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType.Paths[Derived Column Output1]"
+          TopLeft="224,286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType.Paths[Derived Column Output]"
           TopLeft="220.5,203">
@@ -1278,19 +1244,53 @@ FROM [staging].[UNCrime_typed]</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType.Paths[Derived Column Output1]"
-          TopLeft="224,286">
+          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType.Paths[Sort Output]"
+          TopLeft="225,375">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,47"
+              EndConnector="191.333333333333,90"
               Start="0,0"
-              End="0,39.5">
+              End="191.333333333333,82.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.5" />
+                    End="0,49.7549631310267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49.7549631310267"
+                    Point2="0,53.7549631310267"
+                    Point3="4,53.7549631310267" />
+                  <mssgle:LineSegment
+                    End="187.333333333333,53.7549631310267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="187.333333333333,53.7549631310267"
+                    Point2="191.333333333333,53.7549631310267"
+                    Point3="191.333333333333,57.7549631310267" />
+                  <mssgle:LineSegment
+                    End="191.333333333333,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType.Paths[OLE DB Source Output1]"
+          TopLeft="532.583333333333,100">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,365"
+              Start="0,0"
+              End="0,357.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,357.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1302,19 +1302,6 @@ FROM [staging].[UNCrime_typed]</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\OLEDST dwh_DimCrimeType">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\OLESRC Staging_UNCrime_typed">
     <Properties>
@@ -1328,6 +1315,19 @@ FROM [staging].[UNCrime_typed]</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC Load Data to dwh_DimCrimeType\DFT Load Data from Staging_UNCrime_typed to dwh_DimCrimeType\OLEDST dwh_DimCrimeType">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

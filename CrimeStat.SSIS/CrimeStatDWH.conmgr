@@ -3,8 +3,10 @@
   DTS:ObjectName="CrimeStatDWH"
   DTS:DTSID="{D74771E1-CE20-41F9-86DC-720E3F997195}"
   DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::CrimeStatDWH_ConnectionString]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=EPRUSARW1252\MSSQL2017;Initial Catalog=CrimeStatDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      DTS:ConnectionString="Data Source=EPRUSARW1252\MSSQL2017;Initial Catalog=CrimeStatDWH_DEV;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

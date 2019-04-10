@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="dwh_Load_FactCrime"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{187EB1CC-1178-4094-B3BF-73EB56F21E1A}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{32429306-07F2-4CC5-8151-A190ECDEDA18}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -206,13 +206,13 @@
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">[UPPER]([REPLACE]([REPLACE]([RIGHT](#{Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\OLESRC staging_UNCrime_typed.Outputs[OLE DB Source Output].Columns[FileName]},[FINDSTRING]([REVERSE](#{Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\OLESRC staging_UNCrime_typed.Outputs[OLE DB Source Output].Columns[FileName]}),"\\",1) - 1),".csv",""),"_"," "))</property>
+                              name="Expression">[REPLACE]([REPLACE](#{Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\OLESRC staging_UNCrime_typed.Outputs[OLE DB Source Output].Columns[FileName]},".csv",""),"_"," ")</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">UPPER(REPLACE(REPLACE(RIGHT(FileName,FINDSTRING(REVERSE(FileName),"\\",1) - 1),".csv",""),"_"," "))</property>
+                              name="FriendlyExpression">REPLACE(REPLACE(FileName,".csv",""),"_"," ")</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -1951,24 +1951,7 @@ FROM [staging].[UNCrime_typed]</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-        <AnnotationLayout
-          Text="dwh_Load_FactCrime"
-          ParentId="Package"
-          Size="199,46"
-          Id="9036e2b1-56ff-47c4-a59a-153ac55c2057"
-          TopLeft="166,18">
-          <AnnotationLayout.FontInfo>
-            <mssge:FontInfo
-              Family="Tahoma"
-              Size="18"
-              Color="#FFFFFF00">
-              <mssge:FontInfo.TextDecorations>
-                <av:TextDecorationCollection />
-              </mssge:FontInfo.TextDecorations>
-            </mssge:FontInfo>
-          </AnnotationLayout.FontInfo>
-        </AnnotationLayout>
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="238,42"
           Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime"
@@ -2013,6 +1996,23 @@ FROM [staging].[UNCrime_typed]</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="dwh_Load_FactCrime"
+          ParentId="Package"
+          Size="199,46"
+          Id="9036e2b1-56ff-47c4-a59a-153ac55c2057"
+          TopLeft="166,18">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="18"
+              Color="#FFFFFF00">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2022,65 +2022,45 @@ FROM [staging].[UNCrime_typed]</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="256,42"
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Derived Column for Spechial Counries"
+          TopLeft="632,655" />
+        <NodeLayout
           Size="234,42"
           Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\OLESRC staging_UNCrime_typed"
           TopLeft="285,23" />
         <NodeLayout
-          Size="149,42"
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\DER File Name"
-          TopLeft="328,98" />
-        <EdgeLayout
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[OLE DB Source Output]"
-          TopLeft="402.25,65">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,33"
-              Start="0,0"
-              End="0,25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="177,42"
           Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\DER Upper FileName"
           TopLeft="318.555555555556,181" />
-        <EdgeLayout
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Derived Column Output]"
-          TopLeft="404.777777777778,140">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,41"
-              Start="0,0"
-              End="0,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="193,42"
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\DER Deal with Unknown"
+          TopLeft="305.666666666667,661" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Remove FileName"
+          TopLeft="323.777777777778,262.444444444445" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\DER File Name"
+          TopLeft="328,98" />
         <NodeLayout
           Size="234,42"
           Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Lookup for Nomatched Countries"
-          TopLeft="651,538" />
+          TopLeft="646.555555555556,538" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Lookup DimCountryKey"
+          TopLeft="314,539" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Lookup DimDateKey"
+          TopLeft="316.111111111111,445.666666666667" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Union All"
+          TopLeft="528,772" />
         <NodeLayout
           Size="203,42"
           Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Lookup DimCrimeTypeKey"
@@ -2089,107 +2069,51 @@ FROM [staging].[UNCrime_typed]</property>
           Size="167,42"
           Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\OLEDST FactCrime"
           TopLeft="505.333333333333,860.666666666667" />
-        <NodeLayout
-          Size="174,42"
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Lookup DimDateKey"
-          TopLeft="316.111111111111,445.666666666667" />
-        <NodeLayout
-          Size="189,42"
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Lookup DimCountryKey"
-          TopLeft="314,539" />
-        <NodeLayout
-          Size="256,42"
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Derived Column for Spechial Counries"
-          TopLeft="632,655" />
-        <NodeLayout
-          Size="193,42"
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\DER Deal with Unknown"
-          TopLeft="305.666666666667,661" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Union All"
-          TopLeft="528,772" />
         <EdgeLayout
           Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Lookup No Match Output]"
           TopLeft="503,559.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="148,0"
+              EndConnector="143.555555555556,0"
               Start="0,0"
-              End="140.5,0">
+              End="136.055555555556,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="140.5,0" />
+                    End="136.055555555556,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="14.44361328125,5,111.6127734375,11.609375"
+              BoundingBox="12.2213910590278,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Lookup Match Output]"
-          TopLeft="768,580">
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Lookup Match Output3]"
+          TopLeft="406.305555555556,393.777777777778">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-8,75"
+              EndConnector="0,51.8888888888889"
               Start="0,0"
-              End="-8,67.5">
+              End="0,44.3888888888889">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,33.5"
-                    Point2="0,37.5"
-                    Point3="-4,37.5" />
-                  <mssgle:LineSegment
-                    End="-4,37.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4,37.5"
-                    Point2="-8,37.5"
-                    Point3="-8,41.5" />
-                  <mssgle:LineSegment
-                    End="-8,67.5" />
+                    End="0,44.3888888888889" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-52.19138671875,42.5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Lookup Match Output1]"
-          TopLeft="405.333333333333,581">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,80"
-              Start="0,0"
-              End="0,72.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,30.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,16.3897569444445,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2218,91 +2142,79 @@ FROM [staging].[UNCrime_typed]</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Lookup Match Output3]"
-          TopLeft="406.305555555556,393.777777777778">
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Lookup Match Output1]"
+          TopLeft="405.333333333333,581">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,51.8888888888889"
+              EndConnector="0,80"
               Start="0,0"
-              End="0,44.3888888888889">
+              End="0,72.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.3888888888889" />
+                    End="0,72.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,16.3897569444445,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,30.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164,42"
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Remove FileName"
-          TopLeft="323.777777777778,262.444444444445" />
         <EdgeLayout
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Derived Column Output1]"
-          TopLeft="406.416666666667,223">
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Lookup Match Output]"
+          TopLeft="761.777777777778,580">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,39.4444444444445"
+              EndConnector="0,75"
               Start="0,0"
-              End="0,31.9444444444445">
+              End="0,67.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.9444444444445" />
+                    End="0,67.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,27.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Union All Output 1]"
-          TopLeft="407.638888888889,304.444444444445">
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Derived Column Output3]"
+          TopLeft="760,697">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,47.3333333333332"
+              EndConnector="-152.666666666667,75"
               Start="0,0"
-              End="0,39.8333333333332">
+              End="-152.666666666667,67.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.8333333333332" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Union All Output 11]"
-          TopLeft="588.666666666667,814">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,46.6666666666667"
-              Start="0,0"
-              End="0,39.1666666666667">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
+                    End="0,40.4127243066884" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.4127243066884"
+                    Point2="0,44.4127243066884"
+                    Point3="-4,44.4127243066884" />
                   <mssgle:LineSegment
-                    End="0,39.1666666666667" />
+                    End="-148.666666666667,44.4127243066884" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-148.666666666667,44.4127243066884"
+                    Point2="-152.666666666667,44.4127243066884"
+                    Point3="-152.666666666667,48.4127243066884" />
+                  <mssgle:LineSegment
+                    End="-152.666666666667,67.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2346,31 +2258,107 @@ FROM [staging].[UNCrime_typed]</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Derived Column Output3]"
-          TopLeft="760,697">
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Derived Column Output1]"
+          TopLeft="406.416666666667,223">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-152.666666666667,75"
+              EndConnector="0,39.4444444444445"
               Start="0,0"
-              End="-152.666666666667,67.5">
+              End="0,31.9444444444445">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.4127243066884" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.4127243066884"
-                    Point2="0,44.4127243066884"
-                    Point3="-4,44.4127243066884" />
+                    End="0,31.9444444444445" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Derived Column Output]"
+          TopLeft="404.777777777778,140">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-148.666666666667,44.4127243066884" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-148.666666666667,44.4127243066884"
-                    Point2="-152.666666666667,44.4127243066884"
-                    Point3="-152.666666666667,48.4127243066884" />
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Union All Output 11]"
+          TopLeft="588.666666666667,814">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,46.6666666666667"
+              Start="0,0"
+              End="0,39.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-152.666666666667,67.5" />
+                    End="0,39.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[Union All Output 1]"
+          TopLeft="407.638888888889,304.444444444445">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,47.3333333333332"
+              Start="0,0"
+              End="0,39.8333333333332">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.8333333333332" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime.Paths[OLE DB Source Output]"
+          TopLeft="402.25,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2383,20 +2371,12 @@ FROM [staging].[UNCrime_typed]</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\OLESRC staging_UNCrime_typed">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Lookup for Nomatched Countries">
+    design-time-name="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Lookup DimDateKey">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2406,30 +2386,7 @@ FROM [staging].[UNCrime_typed]</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Lookup DimCrimeTypeKey">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2450,12 +2407,20 @@ FROM [staging].[UNCrime_typed]</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Lookup DimDateKey">
+    design-time-name="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\OLESRC staging_UNCrime_typed">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Lookup DimCrimeTypeKey">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2465,7 +2430,30 @@ FROM [staging].[UNCrime_typed]</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC Load FactCrime\DFT Load Data to dwh_FactCrime\Lookup for Nomatched Countries">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2478,7 +2466,7 @@ FROM [staging].[UNCrime_typed]</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2488,7 +2476,7 @@ FROM [staging].[UNCrime_typed]</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
