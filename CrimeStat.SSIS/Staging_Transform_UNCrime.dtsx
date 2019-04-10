@@ -1,0 +1,1455 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/5/2019 4:34:48 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EPRUSARW1252"
+  DTS:CreatorName="SARATOV\Sergei_Boikov"
+  DTS:DTSID="{11BB8AB2-D89A-483E-95F7-765976D6E171}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Staging_Transform_UNCrime"
+  DTS:PackageType="5"
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{6E38386B-4B89-49CB-A01B-DE88D3D4A7B2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FFC_UNCrime]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{1525C890-BBA1-4915-A692-C6EF5964CC4D}"
+      DTS:ObjectName="FFC_UNCrime">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">(DT_WSTR,255)@[User::currentUNCrimeFileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\GIT\CrimeStat.Project\CrimeStat.Sources\CrimeStat.Source.UNCrime\ConvertedToCSV\burglary.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Region"
+              DTS:DTSID="{E0263D9C-6E59-4D8A-ADD5-14D288888F80}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sub Region"
+              DTS:DTSID="{4E0CE497-854A-4D02-9A06-505A45B043B2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Country"
+              DTS:DTSID="{2CAE9927-6CD3-4DDB-B9B6-D023B5A0DBAF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Count"
+              DTS:DTSID="{12BA2099-ADC1-43FC-8F50-67A19FAA5BA3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Rate"
+              DTS:DTSID="{4ACAE1B3-A722-4790-8975-8866C9308056}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Year"
+              DTS:DTSID="{D1AB0361-8F75-41D0-B6A4-3311D2E11107}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1BE43814-441B-4EBC-97B2-E3FB585275F2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="currentUNCrimeFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\GIT\CrimeStat.Project\CrimeStat.Sources\CrimeStat.Source.UNCrime\ConvertedToCSV\burglary.csv</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC Preparation"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{FD2ABD36-FCDE-4B15-A218-58A10CA87B6A}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC Preparation">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC Preparation\SQL Truncate staging UNCrime typed"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{06749205-793A-4E7D-823A-CEDE709775EC}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL Truncate staging UNCrime typed"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"TRUNCATE TABLE staging.UNCrime_typed"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D74771E1-CE20-41F9-86DC-720E3F997195}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE staging.UNCrime_typed" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQC Transform data in staging"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{A6389DFF-AF39-428F-B451-F28AB8AE110D}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC Transform data in staging">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{5C4B3F84-2F83-4B4D-9CD6-EB1CDB7D80DC}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT Load data from staging UNCrime_untyped to staging UNCrime_typed"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="ConSpl for serious_assault"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Inputs[Conditional Split Input].Columns[FileName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FileName"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Outputs[AllFiles (without serious_assault)]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="AllFiles (without serious_assault)"
+                      synchronousInputId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">[REPLACE]([REPLACE]([RIGHT](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]},[FINDSTRING]([REVERSE](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]}),"\\",1) - 1),".csv",""),"_"," ") != "serious assault"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(REPLACE(RIGHT(FileName,FINDSTRING(REVERSE(FileName),"\\",1) - 1),".csv",""),"_"," ") != "serious assault"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Outputs[Serious_assault]"
+                      description="Output 2 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Serious_assault"
+                      synchronousInputId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">[REPLACE]([REPLACE]([RIGHT](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]},[FINDSTRING]([REVERSE](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]}),"\\",1) - 1),".csv",""),"_"," ") == "serious assault"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(REPLACE(RIGHT(FileName,FINDSTRING(REVERSE(FileName),"\\",1) - 1),".csv",""),"_"," ") == "serious assault"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">1</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER Replace Rate Year"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Inputs[Derived Column Input].Columns[Rate]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Rate"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Rate]"
+                          name="Rate"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,255)#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Year]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,255)Year</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Inputs[Derived Column Input].Columns[Year]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Year"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Year]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,255)#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Rate]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,255)Rate</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDST_Table_UNCrime_typed"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[staging].[UNCrime_typed]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Connections[OleDbConnection]"
+                      connectionManagerID="{D74771E1-CE20-41F9-86DC-720E3F997195}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CrimeStatDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].Columns[Region]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Region"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Region]" />
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].Columns[Country]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Country"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Country]" />
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].Columns[Count]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Count"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[Count]"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Count]" />
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].Columns[Rate]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Rate"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[Rate]"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Rate]" />
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].Columns[Year]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Year"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Year]" />
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].Columns[FileName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FileName"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[FileName]" />
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].Columns[SubRegion]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="SubRegion"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[SubRegion]"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[SubRegion]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                          dataType="wstr"
+                          length="255"
+                          name="FileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                          dataType="wstr"
+                          length="255"
+                          name="Region" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[SubRegion]"
+                          dataType="wstr"
+                          length="255"
+                          name="SubRegion" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          dataType="wstr"
+                          length="255"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[Count]"
+                          dataType="wstr"
+                          length="255"
+                          name="Count" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[Rate]"
+                          dataType="numeric"
+                          name="Rate"
+                          precision="15"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                          dataType="wstr"
+                          length="255"
+                          name="Year" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[sysETLrunId]"
+                          dataType="i4"
+                          name="sysETLrunId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedAt]"
+                          dataType="dbTimeStamp"
+                          name="sysCreatedAt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedAt]"
+                          dataType="dbTimeStamp"
+                          name="sysChangedAt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedBy]"
+                          dataType="i4"
+                          name="sysCreatedBy" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedBy]"
+                          dataType="i4"
+                          name="sysChangedBy" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLESRC_Table_UNCrime_untyped"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[staging].[UNCrime_untyped]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [FileName]
+      ,[Region]
+      ,[SubRegion]
+      ,[Country]
+      ,[Count]
+      ,[Rate]
+      ,[Year]
+  FROM [staging].[UNCrime_untyped]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Connections[OleDbConnection]"
+                      connectionManagerID="{D74771E1-CE20-41F9-86DC-720E3F997195}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CrimeStatDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[FileName]"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]"
+                          name="FileName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Region]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Region]"
+                          name="Region"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[SubRegion]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[SubRegion]"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[SubRegion]"
+                          name="SubRegion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Country]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Country]"
+                          name="Country"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Count]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[Count]"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Count]"
+                          name="Count"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Rate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[Rate]"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Rate]"
+                          name="Rate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Year]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Year]"
+                          name="Year"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[FileName]"
+                          dataType="wstr"
+                          length="255"
+                          name="FileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                          dataType="wstr"
+                          length="255"
+                          name="Region" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[SubRegion]"
+                          dataType="wstr"
+                          length="255"
+                          name="SubRegion" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                          dataType="wstr"
+                          length="255"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[Count]"
+                          dataType="wstr"
+                          length="255"
+                          name="Count" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[Rate]"
+                          dataType="wstr"
+                          length="255"
+                          name="Rate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                          dataType="wstr"
+                          length="255"
+                          name="Year" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[FileName]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[FileName]"
+                          name="FileName" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[Region]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[Region]"
+                          name="Region" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[SubRegion]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[SubRegion]"
+                          name="SubRegion" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[Country]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[Country]"
+                          name="Country" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[Count]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[Count]"
+                          name="Count" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[Rate]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[Rate]"
+                          name="Rate" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[Year]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[Year]"
+                          name="Year" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 1].Columns[FileName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FileName"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[FileName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 1].Columns[Region]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Region"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Region]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Region]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 1].Columns[SubRegion]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="SubRegion"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[SubRegion]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[SubRegion]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 1].Columns[Country]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Country"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Country]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Country]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 1].Columns[Count]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Count"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Count]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Count]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 1].Columns[Rate]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Rate"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Rate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Rate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 1].Columns[Year]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Year"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Year]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Year]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 2].Columns[FileName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FileName"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[FileName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 2].Columns[Region]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Region"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Region]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Region]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 2].Columns[SubRegion]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="SubRegion"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[SubRegion]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[SubRegion]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 2].Columns[Country]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Country"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Country]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Country]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 2].Columns[Count]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Count"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Count]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Count]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 2].Columns[Rate]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Rate"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Rate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Rate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 2].Columns[Year]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Year"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Year]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Year]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[FileName]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[FileName]"
+                          name="FileName" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Region]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Region]"
+                          name="Region" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[SubRegion]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[SubRegion]"
+                          name="SubRegion" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Country]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Country]"
+                          name="Country" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Count]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Count]"
+                          name="Count" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Rate]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Rate]"
+                          name="Rate" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Year]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Year]"
+                          name="Year" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[AllFiles]"
+                  endId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 1]"
+                  name="AllFiles"
+                  startId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Outputs[AllFiles (without serious_assault)]" />
+                <path
+                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Derived Column Output]"
+                  endId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 2]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Inputs[Conditional Split Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Serious_assault]"
+                  endId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Inputs[Derived Column Input]"
+                  name="Serious_assault"
+                  startId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Outputs[Serious_assault]" />
+                <path
+                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Union All Output 1]"
+                  endId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed.Inputs[OLE DB Destination Input]"
+                  name="Union All Output 1"
+                  startId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC Transform data in staging\SQL Update staging UNCrime_untyped"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F6F6386C-B6B9-4A6C-B140-98897B0DD418}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL Update staging UNCrime_untyped"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"UPDATE [staging].[UNCrime_untyped]
+SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), ',',''))) 
+       ,[Year] = REPLACE( [Year], [Year],TRIM(REPLACE(REPLACE([Year],'-','0'), ',','')))"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D74771E1-CE20-41F9-86DC-720E3F997195}"
+              SQLTask:SqlStatementSource="UPDATE [staging].[UNCrime_untyped]&#xA;SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), ',',''))) &#xA;       ,[Year] = REPLACE( [Year], [Year],TRIM(REPLACE(REPLACE([Year],'-','0'), ',','')))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC Transform data in staging.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{CF98E3D2-F036-4541-B4CC-763D6326A802}"
+          DTS:From="Package\SEQC Transform data in staging\SQL Update staging UNCrime_untyped"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{99461B47-BA27-485F-9ADA-84F19F2FEF02}"
+      DTS:From="Package\SEQC Preparation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQC Transform data in staging" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="255,42"
+          Id="Package\SEQC Preparation\SQL Truncate staging UNCrime typed"
+          TopLeft="70,21" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="400,123"
+          Size="400,166"
+          Id="Package\SEQC Preparation"
+          TopLeft="234,97" />
+        <NodeLayout
+          Size="426,42"
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed"
+          TopLeft="6.5,87.5" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\SEQC Transform data in staging\SQL Update staging UNCrime_untyped"
+          TopLeft="84,18" />
+        <EdgeLayout
+          Id="Package\SEQC Transform data in staging.PrecedenceConstraints[Constraint]"
+          TopLeft="217,60">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,27.5"
+              Start="0,0"
+              End="0,20">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="442,184"
+          Size="442,228"
+          Id="Package\SEQC Transform data in staging"
+          TopLeft="219,306" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="437,263">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Staging_Transform_UNCrime"
+          ParentId="Package"
+          Size="260,46"
+          Id="d7f475e8-9f80-46a1-8e8e-ddd6e152f387"
+          TopLeft="324,13">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="18"
+              Color="#FFFFFF00">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="240,42"
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped"
+          TopLeft="97.9242424242424,69.6666666666667" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault"
+          TopLeft="110.333333333333,151.666666666667" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year"
+          TopLeft="327.333333333333,278.030303030303" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All"
+          TopLeft="116.060606060606,279.484848484848" />
+        <EdgeLayout
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Serious_assault]"
+          TopLeft="244.333333333333,193.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="177,84.3636363636364"
+              Start="0,0"
+              End="177,76.8636363636364">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.1412956544922" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.1412956544922"
+                    Point2="0,34.1412956544922"
+                    Point3="4,34.1412956544922" />
+                  <mssgle:LineSegment
+                    End="173,34.1412956544922" />
+                  <mssgle:CubicBezierSegment
+                    Point1="173,34.1412956544922"
+                    Point2="177,34.1412956544922"
+                    Point3="177,38.1412956544922" />
+                  <mssgle:LineSegment
+                    End="177,76.8636363636364" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="53.55294921875,39.1412956544922,69.8941015625,11.0625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[AllFiles]"
+          TopLeft="177.94696969697,193.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,85.8181818181818"
+              Start="0,0"
+              End="0,78.3181818181818">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,78.3181818181818" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-72.8398046875,33.3544034090909,145.679609375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[OLE DB Source Output]"
+          TopLeft="214.878787878788,111.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,39.9999999999999"
+              Start="0,0"
+              End="0,32.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="228,42"
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed"
+          TopLeft="66.1060606060606,385.984848484849" />
+        <EdgeLayout
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Derived Column Output]"
+          TopLeft="327.333333333333,299.757575757576">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-90.2727272727272,0"
+              Start="0,0"
+              End="-82.7727272727272,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-82.7727272727272,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Union All Output 1]"
+          TopLeft="178.333333333333,321.484848484848">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,64.5000000000001"
+              Start="0,0"
+              End="0,57.0000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.0000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
