@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Load_UNCrime"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{06957DFF-221F-4AD0-AA74-1049FF41773E}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{38F5506F-C103-4F2B-98DA-D8696F67E478}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -697,13 +697,13 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\SEQC Preparation\SQL Truncate staging WorldBankPopulation_untyped"
+          DTS:refId="Package\SEQC Preparation\SQL Truncate staging UNCrime_untyped"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{d9cae76d-aaf1-4696-9bb7-1bac9164f5f9}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="SQL Truncate staging WorldBankPopulation_untyped"
+          DTS:ObjectName="SQL Truncate staging UNCrime_untyped"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
@@ -739,7 +739,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="308,42"
           Id="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped"
@@ -759,9 +759,9 @@
           Id="Package\SEQC Load data to staging"
           TopLeft="268,338" />
         <NodeLayout
-          Size="328,42"
-          Id="Package\SEQC Preparation\SQL Truncate staging WorldBankPopulation_untyped"
-          TopLeft="28,16" />
+          Size="269,42"
+          Id="Package\SEQC Preparation\SQL Truncate staging UNCrime_untyped"
+          TopLeft="72,23" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -774,7 +774,7 @@
           TopLeft="433,263">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,75"
               Start="0,0"
               End="0,67.5">
