@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Transform_Country"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{E2DE2C8E-746A-48B0-A5E0-FFFACBD9E4EC}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{5C350F2D-7166-48BA-A52E-43C711FE3EBA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -352,7 +352,18 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [name]
+      ,[alpha-2]
+      ,[alpha-3]
+      ,[country-code]
+      ,[iso_3166-2]
+      ,[region]
+      ,[sub-region]
+      ,[intermediate-region]
+      ,[region-code]
+      ,[sub-region-code]
+      ,[intermediate-region-code]
+  FROM [staging].[Country_untyped];</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -369,7 +380,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
@@ -556,26 +567,6 @@
                           dataType="wstr"
                           length="255"
                           name="intermediate-region-code" />
-                        <externalMetadataColumn
-                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].ExternalColumns[sysETLrunId]"
-                          dataType="i4"
-                          name="sysETLrunId" />
-                        <externalMetadataColumn
-                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].ExternalColumns[sysCreatedAt]"
-                          dataType="dbTimeStamp"
-                          name="sysCreatedAt" />
-                        <externalMetadataColumn
-                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].ExternalColumns[sysChangedAt]"
-                          dataType="dbTimeStamp"
-                          name="sysChangedAt" />
-                        <externalMetadataColumn
-                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].ExternalColumns[sysCreatedBy]"
-                          dataType="i4"
-                          name="sysCreatedBy" />
-                        <externalMetadataColumn
-                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].ExternalColumns[sysChangedBy]"
-                          dataType="i4"
-                          name="sysChangedBy" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -703,17 +694,6 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
-          Size="393,42"
-          Id="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed"
-          TopLeft="19.5,28" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="434,122"
-          Size="434,165"
-          Id="Package\SEQC Transform data in staging"
-          TopLeft="47,346" />
-        <NodeLayout
           Size="252,42"
           Id="Package\SEQC Preparation\SQL Truncate staging Country_typed"
           TopLeft="70,22" />
@@ -724,6 +704,17 @@
           Size="400,166"
           Id="Package\SEQC Preparation"
           TopLeft="60,118" />
+        <NodeLayout
+          Size="393,42"
+          Id="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed"
+          TopLeft="19.5,28" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="434,122"
+          Size="434,165"
+          Id="Package\SEQC Transform data in staging"
+          TopLeft="47,346" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="262,284">
@@ -772,13 +763,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="218,42"
-          Id="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed"
-          TopLeft="286,172" />
-        <NodeLayout
           Size="230,42"
           Id="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped"
           TopLeft="283,48" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed"
+          TopLeft="286,172" />
         <EdgeLayout
           Id="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed.Paths[OLE DB Source Output]"
           TopLeft="396.5,90">
