@@ -11,18 +11,18 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Load_Countries"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{3261A46C-CB8C-4F3B-BB01-0053327767A9}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{55F45714-0711-489A-9A4D-827315EBF5ED}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[FFC Countries]"
+      DTS:refId="Package.ConnectionManagers[FFC Countries prepared]"
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{25BCC654-F868-4DD9-AA24-5B38C42E15AC}"
-      DTS:ObjectName="FFC Countries">
+      DTS:ObjectName="FFC Countries prepared">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::CrimeStatETLWorkingFolder] + "\\CrimeStat.Source.Countries\\ISOcountries.csv"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::CrimeStatETLWorkingFolder] + "\\CrimeStat.Source.Countries\\PreparedToUpload\\ISOcountries.csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -32,7 +32,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="65001"
-          DTS:ConnectionString="D:\GIT\CrimeStat.Project\CrimeStat.Sources\CrimeStat.Source.Countries\ISOcountries.csv">
+          DTS:ConnectionString="D:\GIT\CrimeStat.Project\CrimeStat.Sources\CrimeStat.Source.Countries\PreparedToUpload\ISOcountries.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -41,7 +41,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="name"
-              DTS:DTSID="{9F9376BF-C430-491E-9768-A4A0DA613213}"
+              DTS:DTSID="{6EFB60A5-6A50-42D1-8511-0F0FB3A2CAEA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -50,7 +50,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="alpha-2"
-              DTS:DTSID="{494BDA6F-FE95-4AD4-827B-0A52C510A0DE}"
+              DTS:DTSID="{96F30040-2528-4599-9837-D9916EFA23FC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -59,7 +59,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="alpha-3"
-              DTS:DTSID="{72F27F2C-84AC-4298-A1F5-77EFCAC0D002}"
+              DTS:DTSID="{4F2E00A1-878C-4A13-8865-A7E5F1F4827F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -68,7 +68,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="country-code"
-              DTS:DTSID="{179EA48C-DBCB-41A0-A4A0-00374CC8BCB6}"
+              DTS:DTSID="{C632C6C1-0AC5-42BE-B472-A414B6E42FA1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -77,7 +77,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="iso_3166-2"
-              DTS:DTSID="{FC9E448E-3388-4EA7-BFB4-670E4CE19F53}"
+              DTS:DTSID="{02F4CC9D-379F-4BB7-9CD1-7A51FAC1BD58}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -86,7 +86,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="region"
-              DTS:DTSID="{DA2040DD-2CC2-42EB-91DA-E45CB6CD6E3C}"
+              DTS:DTSID="{E8DD3883-0458-4BA7-A8EA-3E91C7A1C783}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -95,7 +95,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="sub-region"
-              DTS:DTSID="{5CC8752C-B1CB-4621-B55C-CD84A1A8D582}"
+              DTS:DTSID="{13E3C35A-C99A-430D-AE58-E8B39D5F412F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -104,7 +104,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="intermediate-region"
-              DTS:DTSID="{EE6F1109-0FCA-4762-BB26-5A502C4AD7ED}"
+              DTS:DTSID="{5AEBF081-B60A-48F1-A7D9-84FB79CA1BBA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -113,7 +113,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="region-code"
-              DTS:DTSID="{73E28100-6335-4440-8855-2512BF0A43E3}"
+              DTS:DTSID="{53453BDA-63D1-4F25-91BD-DF168A48C760}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -122,7 +122,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="sub-region-code"
-              DTS:DTSID="{43650A0C-4D6F-4096-84EF-CF8DD2D7D1D5}"
+              DTS:DTSID="{82B6F73E-98B9-48C7-AF5A-E62493411700}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -131,7 +131,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="intermediate-region-code"
-              DTS:DTSID="{D07BCC8D-7116-4ECC-9D35-C44BD728D90E}"
+              DTS:DTSID="{31A476E4-15DC-4318-82BE-663B78F43539}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -186,8 +186,8 @@
                   <connections>
                     <connection
                       refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries.Connections[FlatFileConnection]"
-                      connectionManagerID="Package.ConnectionManagers[FFC Countries]"
-                      connectionManagerRefId="Package.ConnectionManagers[FFC Countries]"
+                      connectionManagerID="Package.ConnectionManagers[FFC Countries prepared]"
+                      connectionManagerRefId="Package.ConnectionManagers[FFC Countries prepared]"
                       name="FlatFileConnection" />
                   </connections>
                   <outputs>
@@ -836,7 +836,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="303,42"
           Id="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped"
@@ -864,7 +864,7 @@
           TopLeft="257,226">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,62"
               Start="0,0"
               End="0,54.5">
