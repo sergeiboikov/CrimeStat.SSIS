@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="dwh_Load_FactPopulation"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{81A7F46C-21CA-423E-98DB-00D7D4EDE185}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{29928B9E-8C0F-4737-99EF-0EC4E86E71AC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -552,6 +552,20 @@ where [refTable].[DateKeyLookup] = ?</property>
                           cachedName="DimDateKey"
                           externalMetadataColumnId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DimDateKey]"
                           lineageId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\Lookup DimDateKey.Outputs[Lookup Match Output].Columns[DimDateKey]" />
+                        <inputColumn
+                          refId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Gender]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Gender"
+                          externalMetadataColumnId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Output].Columns[Gender]" />
+                        <inputColumn
+                          refId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AgeGroup]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="AgeGroup"
+                          externalMetadataColumnId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AgeGroup]"
+                          lineageId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Output].Columns[AgeGroup]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -591,6 +605,16 @@ where [refTable].[DateKeyLookup] = ?</property>
                           refId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedBy]"
                           dataType="i4"
                           name="sysChangedBy" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="6"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AgeGroup]"
+                          dataType="wstr"
+                          length="10"
+                          name="AgeGroup" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -648,6 +672,8 @@ where [refTable].[DateKeyLookup] = ?</property>
        [Country Code]
       ,CAST([Year]+'01'+'01'AS INT) AS DateKeySRC
       ,[Population]
+      ,[Gender]
+      ,[AgeGroup]
 FROM [staging].[WorldBankPopulation_unpivoted]</property>
                     <property
                       dataType="System.String"
@@ -712,6 +738,26 @@ FROM [staging].[WorldBankPopulation_unpivoted]</property>
                           lineageId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Output].Columns[DateKeySRC]"
                           name="DateKeySRC"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Output].Columns[Gender]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                          length="255"
+                          lineageId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Output].Columns[Gender]"
+                          name="Gender"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Output].Columns[AgeGroup]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Output].ExternalColumns[AgeGroup]"
+                          length="255"
+                          lineageId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Output].Columns[AgeGroup]"
+                          name="AgeGroup"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -728,6 +774,16 @@ FROM [staging].[WorldBankPopulation_unpivoted]</property>
                           refId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Output].ExternalColumns[DateKeySRC]"
                           dataType="i4"
                           name="DateKeySRC" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="255"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Output].ExternalColumns[AgeGroup]"
+                          dataType="wstr"
+                          length="255"
+                          name="AgeGroup" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -751,6 +807,18 @@ FROM [staging].[WorldBankPopulation_unpivoted]</property>
                           dataType="i8"
                           lineageId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Error Output].Columns[Population]"
                           name="Population" />
+                        <outputColumn
+                          refId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                          name="Gender" />
+                        <outputColumn
+                          refId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Error Output].Columns[AgeGroup]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Error Output].Columns[AgeGroup]"
+                          name="AgeGroup" />
                         <outputColumn
                           refId="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -1028,31 +1096,13 @@ FROM [staging].[WorldBankPopulation_unpivoted]</property>
           Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted"
           TopLeft="371,72" />
         <NodeLayout
+          Size="174,42"
+          Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\Lookup DimDateKey"
+          TopLeft="415,312" />
+        <NodeLayout
           Size="193,42"
           Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\DER Deal with Unknown"
           TopLeft="403,422" />
-        <EdgeLayout
-          Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation.Paths[Derived Column Output]"
-          TopLeft="502,464">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,61"
-              Start="0,0"
-              End="0,53.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation.Paths[OLE DB Source Output]"
           TopLeft="527.75,114">
@@ -1107,35 +1157,7 @@ FROM [staging].[WorldBankPopulation_unpivoted]</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="120.110279947917,30.5173137460651,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="174,42"
-          Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\Lookup DimDateKey"
-          TopLeft="415,312" />
-        <EdgeLayout
-          Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation.Paths[Lookup Match Output]"
-          TopLeft="500.166666666667,235">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,77"
-              Start="0,0"
-              End="0,69.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,69.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,28.9453125,96.3827734375,11.609375"
+              BoundingBox="120.110279947916,30.5173137460651,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1161,6 +1183,52 @@ FROM [staging].[WorldBankPopulation_unpivoted]</property>
             <mssgm:EdgeLabel
               BoundingBox="-48.19138671875,24.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation.Paths[Lookup Match Output]"
+          TopLeft="500.166666666667,235">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,77"
+              Start="0,0"
+              End="0,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,28.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation.Paths[Derived Column Output]"
+          TopLeft="502,464">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1216,7 +1284,7 @@ FROM [staging].[WorldBankPopulation_unpivoted]</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1226,7 +1294,7 @@ FROM [staging].[WorldBankPopulation_unpivoted]</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

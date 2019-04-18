@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Prepare_Countries"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{89978CDC-65C1-40BA-8D70-6E8FAE7259F2}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{0D3544EA-9DF5-450A-9EF7-1D990898F948}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -158,7 +158,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="name"
-              DTS:DTSID="{6FE14E95-054C-4154-91AE-FB68B2F1A22E}"
+              DTS:DTSID="{1E8E1C65-4931-4801-9CFE-8E1B0801118A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -167,7 +167,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="alpha-2"
-              DTS:DTSID="{1B3F7AF5-970D-43D5-9907-4ED55948978E}"
+              DTS:DTSID="{C5AFA02C-4B0D-413D-BC22-752C1A97B93B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -176,7 +176,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="alpha-3"
-              DTS:DTSID="{798183A3-C7E6-4E0B-91A6-4C0561FB3F2B}"
+              DTS:DTSID="{FD4A1ED2-FF1E-4620-BAAF-A1542111E0C1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -185,7 +185,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="country-code"
-              DTS:DTSID="{F944E546-1DFB-4B69-9D7C-20225D38477B}"
+              DTS:DTSID="{9333D74B-D373-42F6-8323-FCF696D9EB3E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -194,7 +194,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="iso_3166-2"
-              DTS:DTSID="{8982065E-02F5-4769-BCD2-AB09F3EC6AA2}"
+              DTS:DTSID="{1C34976A-5992-4EF4-B177-1474FC192DB9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -203,7 +203,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="region"
-              DTS:DTSID="{CAE99814-E1BB-4B81-BE4E-095876D324CF}"
+              DTS:DTSID="{D3EDC635-0621-4FCD-A8EC-51BCC43FAAB2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -212,7 +212,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="sub-region"
-              DTS:DTSID="{F38B9E7B-B823-4A30-A005-821ADEBC9BDD}"
+              DTS:DTSID="{47B16229-FBEE-4D42-A08F-F718101A6322}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -221,7 +221,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="intermediate-region"
-              DTS:DTSID="{A7C6200A-6C00-4F51-AFE2-A7EEE9AD2352}"
+              DTS:DTSID="{C65FB6E9-EFE8-4811-AFD6-F7A47AE76E1D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -230,7 +230,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="region-code"
-              DTS:DTSID="{DB6E8C6E-9D25-40AF-8E01-933B3344D0F4}"
+              DTS:DTSID="{F598B000-D640-4316-8E28-CA838D8543AA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -239,7 +239,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="sub-region-code"
-              DTS:DTSID="{C378B074-552A-460B-BD42-7BB2AC1E1646}"
+              DTS:DTSID="{6B5F816A-EEE2-4A22-9AFB-96F9B2CA413D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -248,7 +248,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="intermediate-region-code"
-              DTS:DTSID="{ECA046AA-8F39-449E-AC3B-5B57B76EE922}"
+              DTS:DTSID="{CCD53A21-B1F8-49A9-9C5B-9343914712B4}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
