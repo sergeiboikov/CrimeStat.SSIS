@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Transform_Country"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{5C350F2D-7166-48BA-A52E-43C711FE3EBA}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{FE4C65C7-5EFF-4766-8C99-42F190C9E43C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -72,6 +72,358 @@
             <pipeline
               version="1">
               <components>
+                <component
+                  refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  description="DQS Cleansing component"
+                  name="DQS Cleansing Countries"
+                  usesDispositions="true">
+                  <properties>
+                    <property
+                      dataType="System.Int64"
+                      name="KnowledgebaseName"
+                      typeConverter="NOTBROWSABLE">1000000</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataCorrectionComponent</property>
+                    <property
+                      dataType="System.String"
+                      name="PackageName">Staging_Transform_Country</property>
+                    <property
+                      dataType="System.String"
+                      name="TaskId">{3c04f404-b5e7-409d-bb54-8196f32d2929}</property>
+                    <property
+                      dataType="System.Boolean"
+                      name="EncryptConnection">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      name="StandardizeOutput">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      name="ConfidenceOutputColumnExists">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      name="ReasonOutputColumnExists">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      name="AppendedDataOutputColumnExists">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Connections[DQS]"
+                      connectionManagerID="{6D622298-04DC-4917-9A5A-7CA2E0425F7C}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[DQS Cleansing Connection Manager]"
+                      name="DQS" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Inputs[DQS Cleansing Input]"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="DQS Cleansing Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Inputs[DQS Cleansing Input].Columns[name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="name"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[name]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[name_Source]}</property>
+                            <property
+                              dataType="System.String"
+                              name="DomainName">Country/Region</property>
+                            <property
+                              dataType="System.Int64"
+                              name="DomainId">1001</property>
+                            <property
+                              dataType="System.Boolean"
+                              name="CorrectedOutputIsString">false</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="CorrectedOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[name_Output]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="StatusOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[name_Status]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\161:invalid}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Inputs[DQS Cleansing Input].Columns[alpha-2]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="alpha-2"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[alpha-2]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[alpha-2]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\162:invalid}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Inputs[DQS Cleansing Input].Columns[alpha-3]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="alpha-3"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[alpha-3]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[alpha-3]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\163:invalid}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Inputs[DQS Cleansing Input].Columns[country-code]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="country-code"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[country-code]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[country-code]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\164:invalid}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Inputs[DQS Cleansing Input].Columns[iso_3166-2]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="iso_3166-2"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[iso_3166-2]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[iso_3166-2]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\165:invalid}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Inputs[DQS Cleansing Input].Columns[region]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="region"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[region]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[region]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\166:invalid}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Inputs[DQS Cleansing Input].Columns[sub-region]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="sub-region"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[sub-region]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[sub-region]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\167:invalid}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Inputs[DQS Cleansing Input].Columns[intermediate-region]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="intermediate-region"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[intermediate-region]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[intermediate-region]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\168:invalid}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Inputs[DQS Cleansing Input].Columns[region-code]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="region-code"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[region-code]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[region-code]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\169:invalid}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Inputs[DQS Cleansing Input].Columns[sub-region-code]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="sub-region-code"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[sub-region-code]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[sub-region-code]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\170:invalid}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Inputs[DQS Cleansing Input].Columns[intermediate-region-code]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="intermediate-region-code"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[intermediate-region-code]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[intermediate-region-code]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\171:invalid}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output]"
+                      name="DQS Cleansing Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[name_Source]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[name_Source]"
+                          name="name_Source" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[name_Output]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[name_Output]"
+                          name="name_Output" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[name_Status]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[name_Status]"
+                          name="name_Status" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[alpha-2]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[alpha-2]"
+                          name="alpha-2" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[alpha-3]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[alpha-3]"
+                          name="alpha-3" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[country-code]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[country-code]"
+                          name="country-code" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[iso_3166-2]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[iso_3166-2]"
+                          name="iso_3166-2" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[region]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[region]"
+                          name="region" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[sub-region]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[sub-region]"
+                          name="sub-region" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[intermediate-region]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[intermediate-region]"
+                          name="intermediate-region" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[region-code]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[region-code]"
+                          name="region-code" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[sub-region-code]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[sub-region-code]"
+                          name="sub-region-code" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[intermediate-region-code]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[intermediate-region-code]"
+                          name="intermediate-region-code" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[Record Status]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[Record Status]"
+                          name="Record Status" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
                 <component
                   refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed"
                   componentClassID="Microsoft.OLEDBDestination"
@@ -145,82 +497,82 @@
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].Columns[name]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="name"
-                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].ExternalColumns[name]"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[name]" />
-                        <inputColumn
                           refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].Columns[alpha-2]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="alpha-2"
                           externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].ExternalColumns[alpha-2]"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[alpha-2]" />
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[alpha-2]" />
                         <inputColumn
                           refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].Columns[alpha-3]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="alpha-3"
                           externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].ExternalColumns[alpha-3]"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[alpha-3]" />
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[alpha-3]" />
                         <inputColumn
                           refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].Columns[country-code]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="country-code"
                           externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].ExternalColumns[country-code]"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[country-code]" />
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[country-code]" />
                         <inputColumn
                           refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].Columns[iso_3166-2]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="iso_3166-2"
                           externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].ExternalColumns[iso_3166-2]"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[iso_3166-2]" />
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[iso_3166-2]" />
                         <inputColumn
                           refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].Columns[region]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="region"
                           externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].ExternalColumns[region]"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[region]" />
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[region]" />
                         <inputColumn
                           refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].Columns[sub-region]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="sub-region"
                           externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].ExternalColumns[sub-region]"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[sub-region]" />
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[sub-region]" />
                         <inputColumn
                           refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].Columns[intermediate-region]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="intermediate-region"
                           externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].ExternalColumns[intermediate-region]"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[intermediate-region]" />
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[intermediate-region]" />
                         <inputColumn
                           refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].Columns[region-code]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="region-code"
                           externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].ExternalColumns[region-code]"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[region-code]" />
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[region-code]" />
                         <inputColumn
                           refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].Columns[sub-region-code]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="sub-region-code"
                           externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].ExternalColumns[sub-region-code]"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[sub-region-code]" />
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[sub-region-code]" />
                         <inputColumn
                           refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].Columns[intermediate-region-code]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="intermediate-region-code"
                           externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].ExternalColumns[intermediate-region-code]"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output].Columns[intermediate-region-code]" />
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[intermediate-region-code]" />
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].Columns[name_Output]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="name_Output"
+                          externalMetadataColumnId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output].Columns[name_Output]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -660,8 +1012,13 @@
               </components>
               <paths>
                 <path
-                  refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed.Paths[OLE DB Source Output]"
+                  refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed.Paths[DQS Cleansing Output]"
                   endId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed.Inputs[OLE DB Destination Input]"
+                  name="DQS Cleansing Output"
+                  startId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Outputs[DQS Cleansing Output]" />
+                <path
+                  refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Inputs[DQS Cleansing Input]"
                   name="OLE DB Source Output"
                   startId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped.Outputs[OLE DB Source Output]" />
               </paths>
@@ -761,7 +1118,7 @@
     design-time-name="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="230,42"
           Id="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped"
@@ -769,21 +1126,47 @@
         <NodeLayout
           Size="218,42"
           Id="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed"
-          TopLeft="286,172" />
+          TopLeft="284,240" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries"
+          TopLeft="294,144" />
         <EdgeLayout
           Id="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed.Paths[OLE DB Source Output]"
-          TopLeft="396.5,90">
+          TopLeft="395,90">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,82"
+              EndConnector="0,54"
               Start="0,0"
-              End="0,74.5">
+              End="0,46.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,74.5" />
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed.Paths[DQS Cleansing Output]"
+          TopLeft="392.5,186">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -796,7 +1179,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed">
+    design-time-name="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -809,7 +1192,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_untyped">
+    design-time-name="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\OLEDB_Table_Country_typed">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

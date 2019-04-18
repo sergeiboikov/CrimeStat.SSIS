@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Transform_UNCrime"
   DTS:PackageType="5"
-  DTS:VersionBuild="45"
-  DTS:VersionGUID="{4020599F-B867-4E64-AF11-0D6F611C9391}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{C18F7F29-98DD-412F-A9AE-C436B5A04597}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -178,7 +178,7 @@
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="FileName"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]" />
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[FileName]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -198,7 +198,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                          name="Expression">[REPLACE]([REPLACE](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]},".csv",""),"_"," ") != "serious assault"</property>
+                          name="Expression">[REPLACE]([REPLACE](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[FileName]},".csv",""),"_"," ") != "serious assault"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -226,7 +226,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                          name="Expression">[REPLACE]([REPLACE](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]},".csv",""),"_"," ") == "serious assault"</property>
+                          name="Expression">[REPLACE]([REPLACE](#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[FileName]},".csv",""),"_"," ") == "serious assault"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -298,7 +298,7 @@
                           cachedName="Rate"
                           errorOrTruncationOperation="Computation"
                           errorRowDisposition="FailComponent"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Rate]"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Rate]"
                           name="Rate"
                           truncationRowDisposition="FailComponent"
                           usageType="readWrite">
@@ -307,7 +307,7 @@
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_WSTR,255)#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Year]}</property>
+                              name="Expression">(DT_WSTR,255)#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Year]}</property>
                             <property
                               containsID="true"
                               dataType="System.String"
@@ -323,7 +323,7 @@
                           cachedName="Year"
                           errorOrTruncationOperation="Computation"
                           errorRowDisposition="FailComponent"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Year]"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Year]"
                           truncationRowDisposition="FailComponent"
                           usageType="readWrite">
                           <properties>
@@ -331,7 +331,7 @@
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_WSTR,255)#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Rate]}</property>
+                              name="Expression">(DT_WSTR,255)#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Rate]}</property>
                             <property
                               containsID="true"
                               dataType="System.String"
@@ -373,6 +373,238 @@
                           lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  description="DQS Cleansing component"
+                  name="DQS Cleansing Countires"
+                  usesDispositions="true">
+                  <properties>
+                    <property
+                      dataType="System.Int64"
+                      name="KnowledgebaseName"
+                      typeConverter="NOTBROWSABLE">1000000</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataCorrectionComponent</property>
+                    <property
+                      dataType="System.String"
+                      name="PackageName">Staging_Transform_UNCrime</property>
+                    <property
+                      dataType="System.String"
+                      name="TaskId">{5C4B3F84-2F83-4B4D-9CD6-EB1CDB7D80DC}</property>
+                    <property
+                      dataType="System.Boolean"
+                      name="EncryptConnection">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      name="StandardizeOutput">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      name="ConfidenceOutputColumnExists">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      name="ReasonOutputColumnExists">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      name="AppendedDataOutputColumnExists">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Connections[DQS]"
+                      connectionManagerID="{6D622298-04DC-4917-9A5A-7CA2E0425F7C}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[DQS Cleansing Connection Manager]"
+                      name="DQS" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Inputs[DQS Cleansing Input]"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="DQS Cleansing Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Inputs[DQS Cleansing Input].Columns[FileName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FileName"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[FileName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Inputs[DQS Cleansing Input].Columns[Region]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Region"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Region]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Region]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Inputs[DQS Cleansing Input].Columns[SubRegion]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="SubRegion"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[SubRegion]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[SubRegion]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Inputs[DQS Cleansing Input].Columns[Country]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Country"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Country]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Country_Source]}</property>
+                            <property
+                              dataType="System.String"
+                              name="DomainName">Country/Region</property>
+                            <property
+                              dataType="System.Int64"
+                              name="DomainId">1001</property>
+                            <property
+                              dataType="System.Boolean"
+                              name="CorrectedOutputIsString">false</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="CorrectedOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Country_Output]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="StatusOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Country_Status]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Inputs[DQS Cleansing Input].Columns[Count]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Count"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Count]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Count]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Inputs[DQS Cleansing Input].Columns[Rate]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Rate"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Rate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Rate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Inputs[DQS Cleansing Input].Columns[Year]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Year"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Year]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="SourceOutputLineageId">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Year]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output]"
+                      name="DQS Cleansing Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[FileName]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[FileName]"
+                          name="FileName" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Region]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Region]"
+                          name="Region" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[SubRegion]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[SubRegion]"
+                          name="SubRegion" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Country_Source]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Country_Source]"
+                          name="Country_Source" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Country_Output]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Country_Output]"
+                          name="Country_Output" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Country_Status]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Country_Status]"
+                          name="Country_Status" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Count]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Count]"
+                          name="Count" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Rate]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Rate]"
+                          name="Rate" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Year]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Year]"
+                          name="Year" />
+                        <outputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Record Status]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Record Status]"
+                          name="Record Status" />
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -845,7 +1077,7 @@
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="FileName"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]">
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[FileName]">
                           <properties>
                             <property
                               containsID="true"
@@ -859,7 +1091,7 @@
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="Region"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Region]">
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Region]">
                           <properties>
                             <property
                               containsID="true"
@@ -873,7 +1105,7 @@
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="SubRegion"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[SubRegion]">
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[SubRegion]">
                           <properties>
                             <property
                               containsID="true"
@@ -883,25 +1115,11 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 1].Columns[Country]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="Country"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Country]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Country]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
                           refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 1].Columns[Count]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="Count"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Count]">
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Count]">
                           <properties>
                             <property
                               containsID="true"
@@ -915,7 +1133,7 @@
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="Rate"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Rate]">
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Rate]">
                           <properties>
                             <property
                               containsID="true"
@@ -929,13 +1147,27 @@
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="Year"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Year]">
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Year]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
                               name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Year]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 1].Columns[Country_Output]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Country_Output"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Country_Output]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Country]}</property>
                           </properties>
                         </inputColumn>
                       </inputColumns>
@@ -951,7 +1183,7 @@
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="FileName"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[FileName]">
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[FileName]">
                           <properties>
                             <property
                               containsID="true"
@@ -965,7 +1197,7 @@
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="Region"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Region]">
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Region]">
                           <properties>
                             <property
                               containsID="true"
@@ -979,7 +1211,7 @@
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="SubRegion"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[SubRegion]">
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[SubRegion]">
                           <properties>
                             <property
                               containsID="true"
@@ -989,25 +1221,11 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 2].Columns[Country]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="Country"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Country]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Country]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
                           refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 2].Columns[Count]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="Count"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Count]">
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Count]">
                           <properties>
                             <property
                               containsID="true"
@@ -1021,7 +1239,7 @@
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="Rate"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Rate]">
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Rate]">
                           <properties>
                             <property
                               containsID="true"
@@ -1035,13 +1253,27 @@
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="Year"
-                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output].Columns[Year]">
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Year]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
                               name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Year]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Inputs[Union All Input 2].Columns[Country_Output]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Country_Output"
+                          lineageId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output].Columns[Country_Output]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All.Outputs[Union All Output 1].Columns[Country]}</property>
                           </properties>
                         </inputColumn>
                       </inputColumns>
@@ -1120,8 +1352,13 @@
                   name="Derived Column Output"
                   startId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year.Outputs[Derived Column Output]" />
                 <path
-                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[OLE DB Source Output]"
+                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[DQS Cleansing Output]"
                   endId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault.Inputs[Conditional Split Input]"
+                  name="DQS Cleansing Output"
+                  startId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Outputs[DQS Cleansing Output]" />
+                <path
+                  refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Inputs[DQS Cleansing Input]"
                   name="OLE DB Source Output"
                   startId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped.Outputs[OLE DB Source Output]" />
                 <path
@@ -1292,26 +1529,26 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
         <NodeLayout
           Size="240,42"
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped"
-          TopLeft="97.9242424242424,69.6666666666667" />
+          TopLeft="93.9242424242424,0.6666666666667" />
         <NodeLayout
           Size="228,42"
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLEDST_Table_UNCrime_typed"
-          TopLeft="66.1060606060606,385.984848484849" />
+          TopLeft="66.1060606060606,389.984848484849" />
         <NodeLayout
           Size="203,42"
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\ConSpl for serious_assault"
-          TopLeft="110.333333333333,151.666666666667" />
+          TopLeft="110.333333333333,155.666666666667" />
         <NodeLayout
           Size="188,42"
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year"
-          TopLeft="327.333333333333,278.030303030303" />
+          TopLeft="327.333333333333,282.030303030303" />
         <NodeLayout
           Size="121,42"
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All"
-          TopLeft="116.060606060606,279.484848484848" />
+          TopLeft="116.060606060606,283.484848484848" />
         <EdgeLayout
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Union All Output 1]"
-          TopLeft="178.333333333333,321.484848484848">
+          TopLeft="178.333333333333,325.484848484848">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -1333,7 +1570,7 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Serious_assault]"
-          TopLeft="244.333333333333,193.666666666667">
+          TopLeft="244.333333333333,197.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -1368,30 +1605,8 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[OLE DB Source Output]"
-          TopLeft="214.878787878788,111.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,39.9999999999999"
-              Start="0,0"
-              End="0,32.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Derived Column Output]"
-          TopLeft="327.333333333333,299.757575757576">
+          TopLeft="327.333333333333,303.757575757576">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -1413,7 +1628,7 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[AllFiles]"
-          TopLeft="177.94696969697,193.666666666667">
+          TopLeft="177.94696969697,197.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -1433,6 +1648,54 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
             <mssgm:EdgeLabel
               BoundingBox="-72.8398046875,33.3544034090909,145.679609375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="196,42"
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires"
+          TopLeft="114,73" />
+        <EdgeLayout
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[DQS Cleansing Output]"
+          TopLeft="211.916666666667,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,40.666666666667"
+              Start="0,0"
+              End="0,33.166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[OLE DB Source Output]"
+          TopLeft="212.962121212121,42.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,30.3333333333333"
+              Start="0,0"
+              End="0,22.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

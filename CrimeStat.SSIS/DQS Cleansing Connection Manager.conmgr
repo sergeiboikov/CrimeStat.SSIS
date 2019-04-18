@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DQS Cleansing Connection Manager"
+  DTS:DTSID="{6D622298-04DC-4917-9A5A-7CA2E0425F7C}"
+  DTS:CreationName="DQS">
+  <DTS:ObjectData>
+    <InnerObject>
+      <ServerName
+        Type="8"
+        Value="EPRUSARW1252\MSSQL2017" />
+      <TargetServerVersion
+        Type="3"
+        Value="140" />
+    </InnerObject>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

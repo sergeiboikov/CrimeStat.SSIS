@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Prepare_Countries"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{F055A667-C8C4-43EF-935C-828EDB1DDFB2}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{89978CDC-65C1-40BA-8D70-6E8FAE7259F2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -313,31 +313,7 @@
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="name"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT Prepare Countries file to upload\FFS ISOcountries.Outputs[Flat File Source Output].Columns[name]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">#{Package\DFT Prepare Countries file to upload\FFS ISOcountries.Outputs[Flat File Source Output].Columns[alpha-3]} == (DT_WSTR,3)"ALA" ? "Eland Islands" : #{Package\DFT Prepare Countries file to upload\FFS ISOcountries.Outputs[Flat File Source Output].Columns[alpha-3]} == (DT_WSTR,3)"TZA" ? "United Republic Of Tanzania" : #{Package\DFT Prepare Countries file to upload\FFS ISOcountries.Outputs[Flat File Source Output].Columns[alpha-3]} == (DT_WSTR,3)"COG" ? "Republic Of The Congo" : #{Package\DFT Prepare Countries file to upload\FFS ISOcountries.Outputs[Flat File Source Output].Columns[name]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[alpha-3] == (DT_WSTR,3)"ALA" ? "Eland Islands" : [alpha-3] == (DT_WSTR,3)"TZA" ? "United Republic Of Tanzania" : [alpha-3] == (DT_WSTR,3)"COG" ? "Republic Of The Congo" : name</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT Prepare Countries file to upload\DC data update.Inputs[Derived Column Input].Columns[alpha-3]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="alpha-3"
-                      lineageId="Package\DFT Prepare Countries file to upload\FFS ISOcountries.Outputs[Flat File Source Output].Columns[alpha-3]" />
+                      lineageId="Package\DFT Prepare Countries file to upload\FFS ISOcountries.Outputs[Flat File Source Output].Columns[name]" />
                     <inputColumn
                       refId="Package\DFT Prepare Countries file to upload\DC data update.Inputs[Derived Column Input].Columns[sub-region]"
                       cachedDataType="wstr"
@@ -950,6 +926,10 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="250,42"
+          Id="Package\DFT Prepare Countries file to upload"
+          TopLeft="123,114" />
         <AnnotationLayout
           Text="Prepare_Countries"
           ParentId="Package"
@@ -967,10 +947,6 @@
             </mssge:FontInfo>
           </AnnotationLayout.FontInfo>
         </AnnotationLayout>
-        <NodeLayout
-          Size="250,42"
-          Id="Package\DFT Prepare Countries file to upload"
-          TopLeft="123,114" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -987,6 +963,10 @@
           Size="152,42"
           Id="Package\DFT Prepare Countries file to upload\DC data update"
           TopLeft="217,131" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\DFT Prepare Countries file to upload\Flat File Destination"
+          TopLeft="205,222" />
         <EdgeLayout
           Id="Package\DFT Prepare Countries file to upload.Paths[Flat File Source Output]"
           TopLeft="294,87">
@@ -1009,10 +989,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="172,42"
-          Id="Package\DFT Prepare Countries file to upload\Flat File Destination"
-          TopLeft="205,222" />
         <EdgeLayout
           Id="Package\DFT Prepare Countries file to upload.Paths[Derived Column Output]"
           TopLeft="292,173">
