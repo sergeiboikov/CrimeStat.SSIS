@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Transform_UNCrime"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{C18F7F29-98DD-412F-A9AE-C436B5A04597}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{56DBAC03-D579-45FF-BAE7-0F7580EE2EAC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -417,7 +417,7 @@
                   <connections>
                     <connection
                       refId="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires.Connections[DQS]"
-                      connectionManagerID="{6D622298-04DC-4917-9A5A-7CA2E0425F7C}:external"
+                      connectionManagerID="{137AA525-3E1E-4231-A20E-7F646D545A93}:external"
                       connectionManagerRefId="Project.ConnectionManagers[DQS Cleansing Connection Manager]"
                       name="DQS" />
                   </connections>
@@ -1527,6 +1527,14 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="196,42"
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires"
+          TopLeft="114,73" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All"
+          TopLeft="116.060606060606,283.484848484848" />
+        <NodeLayout
           Size="240,42"
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\OLESRC_Table_UNCrime_untyped"
           TopLeft="93.9242424242424,0.6666666666667" />
@@ -1542,10 +1550,74 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
           Size="188,42"
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DER Replace Rate Year"
           TopLeft="327.333333333333,282.030303030303" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\Union All"
-          TopLeft="116.060606060606,283.484848484848" />
+        <EdgeLayout
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[DQS Cleansing Output]"
+          TopLeft="211.916666666667,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,40.666666666667"
+              Start="0,0"
+              End="0,33.166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Derived Column Output]"
+          TopLeft="327.333333333333,303.757575757576">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-90.2727272727272,0"
+              Start="0,0"
+              End="-82.7727272727272,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-82.7727272727272,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[AllFiles]"
+          TopLeft="177.94696969697,197.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,85.8181818181818"
+              Start="0,0"
+              End="0,78.3181818181818">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,78.3181818181818" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-72.8398046875,33.3544034090909,145.679609375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Union All Output 1]"
           TopLeft="178.333333333333,325.484848484848">
@@ -1602,78 +1674,6 @@ SET [Count] = REPLACE( [Count], [Count],TRIM(REPLACE(REPLACE([Count],'-','0'), '
             <mssgm:EdgeLabel
               BoundingBox="53.55294921875,39.1412956544922,69.8941015625,11.0625"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[Derived Column Output]"
-          TopLeft="327.333333333333,303.757575757576">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-90.2727272727272,0"
-              Start="0,0"
-              End="-82.7727272727272,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-82.7727272727272,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[AllFiles]"
-          TopLeft="177.94696969697,197.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,85.8181818181818"
-              Start="0,0"
-              End="0,78.3181818181818">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,78.3181818181818" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-72.8398046875,33.3544034090909,145.679609375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="196,42"
-          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed\DQS Cleansing Countires"
-          TopLeft="114,73" />
-        <EdgeLayout
-          Id="Package\SEQC Transform data in staging\DFT Load data from staging UNCrime_untyped to staging UNCrime_typed.Paths[DQS Cleansing Output]"
-          TopLeft="211.916666666667,115">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,40.666666666667"
-              Start="0,0"
-              End="0,33.166666666667">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.166666666667" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

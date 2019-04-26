@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Load_WorldBank"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{134BA219-72CA-4E8B-A6FE-D0D96FE46D7F}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{D9A9E690-5D2A-4770-87F7-DF3DA53714FC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -710,8 +710,8 @@
                       <connections>
                         <connection
                           refId="Package\SEQC Load data to staging\FLC For each file on WorldBank data\DFT Lood from File to staging WorldBankPopulation_untyped\DQS Cleansing Countries.Connections[DQS]"
-                          connectionManagerID="{6D622298-04DC-4917-9A5A-7CA2E0425F7C}:external"
-                          connectionManagerRefId="Project.ConnectionManagers[DQS Cleansing Connection Manager]"
+                          connectionManagerID="{137AA525-3E1E-4231-A20E-7F646D545A93}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[DQS Cleansing Connection Manager.localhost\MSSQL2017]"
                           name="DQS" />
                       </connections>
                       <inputs>
@@ -4569,8 +4569,8 @@
           <DTS:ForEachVariableMappings>
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{B755FC28-16BE-4B2A-BD88-FC9DD29096CA}"
-              DTS:ObjectName="{B755FC28-16BE-4B2A-BD88-FC9DD29096CA}"
+              DTS:DTSID="{4707B8A1-FE29-482F-9479-9529AC5210AA}"
+              DTS:ObjectName="{4707B8A1-FE29-482F-9479-9529AC5210AA}"
               DTS:ValueIndex="0"
               DTS:VariableName="User::currentWorldBankFileName" />
           </DTS:ForEachVariableMappings>
@@ -4630,7 +4630,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="366,42"
           Id="Package\SEQC Load data to staging\FLC For each file on WorldBank data\DFT Lood from File to staging WorldBankPopulation_untyped"
@@ -4665,7 +4665,7 @@
           TopLeft="493,222">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,62"
               Start="0,0"
               End="0,54.5">

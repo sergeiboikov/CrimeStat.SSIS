@@ -7,6 +7,6 @@
     DTS:Name="ConnectionString">@[$Project::CrimeStatDWH_ConnectionString]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=EPRUSARW1252\MSSQL2017;Initial Catalog=CrimeStatDWH_DEV;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      DTS:ConnectionString="Data Source=localhost;Initial Catalog=CrimeStatDWH_DEV;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

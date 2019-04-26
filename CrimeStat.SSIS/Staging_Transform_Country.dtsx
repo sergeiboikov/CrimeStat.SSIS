@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Transform_Country"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{FE4C65C7-5EFF-4766-8C99-42F190C9E43C}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{4C4B739B-ED06-4739-861F-8B064BC1F8D3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -111,7 +111,7 @@
                   <connections>
                     <connection
                       refId="Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\DQS Cleansing Countries.Connections[DQS]"
-                      connectionManagerID="{6D622298-04DC-4917-9A5A-7CA2E0425F7C}:external"
+                      connectionManagerID="{137AA525-3E1E-4231-A20E-7F646D545A93}:external"
                       connectionManagerRefId="Project.ConnectionManagers[DQS Cleansing Connection Manager]"
                       name="DQS" />
                   </connections>
@@ -153,7 +153,7 @@
                             <property
                               containsID="true"
                               dataType="System.Int32"
-                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\161:invalid}</property>
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\584:invalid}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -170,7 +170,7 @@
                             <property
                               containsID="true"
                               dataType="System.Int32"
-                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\162:invalid}</property>
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\585:invalid}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -187,7 +187,7 @@
                             <property
                               containsID="true"
                               dataType="System.Int32"
-                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\163:invalid}</property>
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\586:invalid}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -204,7 +204,7 @@
                             <property
                               containsID="true"
                               dataType="System.Int32"
-                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\164:invalid}</property>
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\587:invalid}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -221,7 +221,7 @@
                             <property
                               containsID="true"
                               dataType="System.Int32"
-                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\165:invalid}</property>
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\588:invalid}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -238,7 +238,7 @@
                             <property
                               containsID="true"
                               dataType="System.Int32"
-                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\166:invalid}</property>
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\589:invalid}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -255,7 +255,7 @@
                             <property
                               containsID="true"
                               dataType="System.Int32"
-                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\167:invalid}</property>
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\590:invalid}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -272,7 +272,7 @@
                             <property
                               containsID="true"
                               dataType="System.Int32"
-                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\168:invalid}</property>
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\591:invalid}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -289,7 +289,7 @@
                             <property
                               containsID="true"
                               dataType="System.Int32"
-                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\169:invalid}</property>
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\592:invalid}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -306,7 +306,7 @@
                             <property
                               containsID="true"
                               dataType="System.Int32"
-                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\170:invalid}</property>
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\593:invalid}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -323,7 +323,7 @@
                             <property
                               containsID="true"
                               dataType="System.Int32"
-                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\171:invalid}</property>
+                              name="ErrorOutputLinageId">#{Package\SEQC Transform data in staging\DFT Load from staging Country_untyped to staging Country_typed\594:invalid}</property>
                           </properties>
                         </inputColumn>
                       </inputColumns>

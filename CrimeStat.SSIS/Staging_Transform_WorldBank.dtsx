@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Transform_WorldBank"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{8D88D3E9-BD04-420A-8619-09A17ECD3316}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{D36D875E-BA03-4F6D-94B2-22404FF4E1DF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3336,7 +3336,7 @@
                   <connections>
                     <connection
                       refId="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_untyped to WorldBankPopulation_typed\DQS Cleansing Countires.Connections[DQS]"
-                      connectionManagerID="{6D622298-04DC-4917-9A5A-7CA2E0425F7C}:external"
+                      connectionManagerID="{137AA525-3E1E-4231-A20E-7F646D545A93}:external"
                       connectionManagerRefId="Project.ConnectionManagers[DQS Cleansing Connection Manager]"
                       name="DQS" />
                   </connections>
@@ -7126,7 +7126,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_typed to WorldBankPopulation_unpivoted\OLEDST_Table_WorldBankPopulation_unpivoted">
+    design-time-name="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_typed to WorldBankPopulation_unpivoted\OLESRC_Table_WorldBankPopulation_typed">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7139,7 +7139,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_typed to WorldBankPopulation_unpivoted\OLESRC_Table_WorldBankPopulation_typed">
+    design-time-name="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_typed to WorldBankPopulation_unpivoted\OLEDST_Table_WorldBankPopulation_unpivoted">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7164,6 +7164,10 @@
           Size="281,42"
           Id="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_untyped to WorldBankPopulation_typed\OLEDB_Table_WorldBankPopulation_typed"
           TopLeft="169,363" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_untyped to WorldBankPopulation_typed\DC Get AgeGroup and Gender"
+          TopLeft="201,246" />
         <NodeLayout
           Size="196,42"
           Id="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_untyped to WorldBankPopulation_typed\DQS Cleansing Countires"
@@ -7190,10 +7194,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="220,42"
-          Id="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_untyped to WorldBankPopulation_typed\DC Get AgeGroup and Gender"
-          TopLeft="201,246" />
         <EdgeLayout
           Id="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_untyped to WorldBankPopulation_typed.Paths[DQS Cleansing Output]"
           TopLeft="313,173">
@@ -7242,7 +7242,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_untyped to WorldBankPopulation_typed\OLEDB_Table_WorldBankPopulation_typed">
+    design-time-name="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_untyped to WorldBankPopulation_typed\OLEDB_Table_WorldBankPopulation_untyped">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7255,7 +7255,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_untyped to WorldBankPopulation_typed\OLEDB_Table_WorldBankPopulation_untyped">
+    design-time-name="Package\SEQC Transform data in staging\DFT Load data from staging WorldBankPopulation_untyped to WorldBankPopulation_typed\OLEDB_Table_WorldBankPopulation_typed">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

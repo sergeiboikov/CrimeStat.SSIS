@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="dwh_Load_FactPopulation"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{3A305B3C-CF15-455C-AC53-1278D88A7FA8}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{C4DA8075-2842-4D7E-80A7-306E1CF35738}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1080,10 +1080,6 @@ FROM [staging].[WorldBankPopulation_unpivoted]</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="121,42"
-          Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\Union All"
-          TopLeft="850,298" />
-        <NodeLayout
           Size="189,42"
           Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\Lookup DimCountryKey"
           TopLeft="434,193" />
@@ -1095,6 +1091,10 @@ FROM [staging].[WorldBankPopulation_unpivoted]</property>
           Size="312,42"
           Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\OLESRC staging_WorldBankPopulation_unpivoted"
           TopLeft="371,72" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\Union All"
+          TopLeft="850,298" />
         <NodeLayout
           Size="174,42"
           Id="Package\SEQC Load FactPopulation\DFT Load Data to dwh_FactPopulation\Lookup DimDateKey"
@@ -1240,7 +1240,7 @@ FROM [staging].[WorldBankPopulation_unpivoted]</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1250,7 +1250,7 @@ FROM [staging].[WorldBankPopulation_unpivoted]</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
