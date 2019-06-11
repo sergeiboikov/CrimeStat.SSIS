@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Load_UNCrime"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{D7280059-8D42-4EFA-87B7-0274F1B1D655}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{BD0ECF6A-9D65-4324-B43A-1515D3EA3520}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -96,6 +96,15 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{DCDFC9E8-F31B-42CE-8844-F72B74F8F625}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="currentUNCrimeAzureBlobPath">
+      <DTS:VariableValue
+        DTS:DataType="8">CrimeStat.Source.UNCrime/ConvertedToCSV/burglary.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{48A34ADA-6939-423C-99CD-AED38D8451A8}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
@@ -105,6 +114,576 @@
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FLC For each file on UNCrime data"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{efeb09a0-8f58-4ba2-9688-ff65fdd1d00c}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FLC For each file on UNCrime data">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{e65e9964-6e95-464d-be18-f67dc5642b3a}"
+        DTS:ObjectName="{2A32FDEA-EAAA-4DC8-8EF6-B3A8BB1BBA9B}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="D:\GIT\CrimeStat.Project\CrimeStat.Sources\CrimeStat.Source.UNCrime\ConvertedToCSV" />
+            <FEFEProperty
+              FileSpec="*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{e3908d6f-57b7-4507-a714-a6290cdb50a8}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT Load from File to staging UNCrime_untyped"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DCol UNCrime_File_Name"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Outputs[Derived Column Output].Columns[FileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Outputs[Derived Column Output].Columns[FileName]"
+                          name="FileName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,255)@[User::currentUNCrimeFileName]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,255)@[User::currentUNCrimeFileName]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="FFC UNCrime file"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[FFC_UNCrime]"
+                      connectionManagerRefId="Package.ConnectionManagers[FFC_UNCrime]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Region]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Region]"
+                          length="255"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Region]"
+                          name="Region"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Sub Region]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Sub Region]"
+                          length="255"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Sub Region]"
+                          name="Sub Region"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Country]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                          length="255"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Country]"
+                          name="Country"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Count]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Count]"
+                          length="255"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Count]"
+                          name="Count"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Rate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Rate]"
+                          length="255"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Rate]"
+                          name="Rate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Year]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Year]"
+                          length="255"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Year]"
+                          name="Year"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Region]"
+                          dataType="wstr"
+                          length="255"
+                          name="Region" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Sub Region]"
+                          dataType="wstr"
+                          length="255"
+                          name="Sub Region" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                          dataType="wstr"
+                          length="255"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Count]"
+                          dataType="wstr"
+                          length="255"
+                          name="Count" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Rate]"
+                          dataType="wstr"
+                          length="255"
+                          name="Rate" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Year]"
+                          dataType="wstr"
+                          length="255"
+                          name="Year" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="65001"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[staging].[UNCrime_untyped]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{D74771E1-CE20-41F9-86DC-720E3F997195}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CrimeStatDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Region]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Region"
+                          externalMetadataColumnId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Region]" />
+                        <inputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Country]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Country"
+                          externalMetadataColumnId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Country]" />
+                        <inputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Count]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Count"
+                          externalMetadataColumnId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Count]"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Count]" />
+                        <inputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Rate]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Rate"
+                          externalMetadataColumnId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rate]"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Rate]" />
+                        <inputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Year]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Year"
+                          externalMetadataColumnId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Year]" />
+                        <inputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sub Region]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Sub Region"
+                          externalMetadataColumnId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubRegion]"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Sub Region]" />
+                        <inputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FileName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FileName"
+                          externalMetadataColumnId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Outputs[Derived Column Output].Columns[FileName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                          dataType="wstr"
+                          length="255"
+                          name="FileName" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                          dataType="wstr"
+                          length="255"
+                          name="Region" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubRegion]"
+                          dataType="wstr"
+                          length="255"
+                          name="SubRegion" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          dataType="wstr"
+                          length="255"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Count]"
+                          dataType="wstr"
+                          length="255"
+                          name="Count" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rate]"
+                          dataType="wstr"
+                          length="255"
+                          name="Rate" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                          dataType="wstr"
+                          length="255"
+                          name="Year" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysETLrunId]"
+                          dataType="i4"
+                          name="sysETLrunId" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedAt]"
+                          dataType="dbTimeStamp"
+                          name="sysCreatedAt" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedAt]"
+                          dataType="dbTimeStamp"
+                          name="sysChangedAt" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedBy]"
+                          dataType="i4"
+                          name="sysCreatedBy" />
+                        <externalMetadataColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedBy]"
+                          dataType="i4"
+                          name="sysChangedBy" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped.Paths[Derived Column Output]"
+                  endId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped.Paths[Flat File Source Output]"
+                  endId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Inputs[Derived Column Input]"
+                  name="Flat File Source Output"
+                  startId="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{38008eb0-417b-45a3-930b-97a70f5540cc}"
+          DTS:ObjectName="{ACA952B0-484E-40C6-8ECB-9271B3E46C0D}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::currentUNCrimeFileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\SEQC Load data to staging"
       DTS:CreationName="STOCK:SEQUENCE"
@@ -124,20 +703,18 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="FLC For each file on UNCrime data">
           <DTS:ForEachEnumerator
-            DTS:CreationName="Microsoft.ForEachFileEnumerator"
-            DTS:DTSID="{2A32FDEA-EAAA-4DC8-8EF6-B3A8BB1BBA9B}"
-            DTS:ObjectName="{2A32FDEA-EAAA-4DC8-8EF6-B3A8BB1BBA9B}">
+            DTS:CreationName="ForEachBlobEnumerator"
+            DTS:DTSID="{EEEF7FE3-B531-4FA8-9BED-E4F53DA4DF94}"
+            DTS:ObjectName="{EEEF7FE3-B531-4FA8-9BED-E4F53DA4DF94}">
             <DTS:ObjectData>
-              <ForEachFileEnumeratorProperties>
-                <FEFEProperty
-                  Folder="D:\GIT\CrimeStat.Project\CrimeStat.Sources\CrimeStat.Source.UNCrime\ConvertedToCSV" />
-                <FEFEProperty
-                  FileSpec="*.csv" />
-                <FEFEProperty
-                  FileNameRetrievalType="1" />
-                <FEFEProperty
-                  Recurse="0" />
-              </ForEachFileEnumeratorProperties>
+              <FEECloudEnumerator
+                Connection="{E7916D07-F2A1-4AC3-8B44-C9724B0A156B}"
+                Container="crimestat-sourcefiles"
+                BlobPath="CrimeStat.Source.UNCrime/ConvertedToCSV/"
+                SearchRecursively="0"
+                FileNameFilter="*.csv"
+                TimeRangeFrom="1/1/1900 12:00:00 AM +04:00"
+                TimeRangeTo="12/31/2200 12:00:00 AM +04:00" />
             </DTS:ObjectData>
           </DTS:ForEachEnumerator>
           <DTS:Variables />
@@ -152,10 +729,228 @@
               DTS:ObjectName="DFT Load from File to staging UNCrime_untyped"
               DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
               <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="[ABS UNCrime file].[Blob Name]">@[User::currentUNCrimeAzureBlobPath]</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
                   version="1">
                   <components>
+                    <component
+                      refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file"
+                      componentClassID="Microsoft.ManagedComponentHost"
+                      contactInfo="© Microsoft Corporation; All Rights Reserved;"
+                      description="Extracts data from a blob in Azure Storage. The supported file formats are: Text and Avro."
+                      name="ABS UNCrime file"
+                      usesDispositions="true"
+                      validateExternalMetadata="False">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The name of blob container"
+                          expressionType="Notify"
+                          name="Blob Container">crimestat-sourcefiles</property>
+                        <property
+                          dataType="System.String"
+                          description="The full name of blob"
+                          expressionType="Notify"
+                          name="Blob Name">CrimeStat.Source.UNCrime/ConvertedToCSV/burglary.csv</property>
+                        <property
+                          dataType="System.Int32"
+                          description="The format of blob file"
+                          name="Blob Format"
+                          typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzBlobFormatEnumStringConverter">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Compress File"
+                          name="Compress File">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="The compression type"
+                          name="Compression Type"
+                          typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzCompressionTypeEnumStringConverter">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="The compression level"
+                          name="Compression Level"
+                          typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzCompressionLevelEnumStringConverter">0</property>
+                        <property
+                          dataType="System.String"
+                          description="The character used to delimit columns in text file"
+                          name="Column Delimiter">,</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Column names in the first data row"
+                          name="First Row as Column Names">true</property>
+                        <property
+                          dataType="System.String"
+                          name="UserComponentTypeName">AzBlobSrc</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Connections[Azure Storage]"
+                          connectionManagerID="{E7916D07-F2A1-4AC3-8B44-C9724B0A156B}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[SSIS Connection Manager for Azure Storage]"
+                          description="Connection Manager for Azure Storage"
+                          name="Azure Storage" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output]"
+                          name="Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Region]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].ExternalColumns[Region]"
+                              length="255"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Region]"
+                              name="Region"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Sub Region]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].ExternalColumns[Sub Region]"
+                              length="255"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Sub Region]"
+                              name="Sub Region"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Country]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].ExternalColumns[Country]"
+                              length="255"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Country]"
+                              name="Country"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Count]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].ExternalColumns[Count]"
+                              length="255"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Count]"
+                              name="Count"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Rate]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].ExternalColumns[Rate]"
+                              length="255"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Rate]"
+                              name="Rate"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Year]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].ExternalColumns[Year]"
+                              length="255"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Year]"
+                              name="Year"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].ExternalColumns[Region]"
+                              dataType="wstr"
+                              length="255"
+                              name="Region" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].ExternalColumns[Sub Region]"
+                              dataType="wstr"
+                              length="255"
+                              name="Sub Region" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].ExternalColumns[Country]"
+                              dataType="wstr"
+                              length="255"
+                              name="Country" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].ExternalColumns[Count]"
+                              dataType="wstr"
+                              length="255"
+                              name="Count" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].ExternalColumns[Rate]"
+                              dataType="wstr"
+                              length="255"
+                              name="Rate" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].ExternalColumns[Year]"
+                              dataType="wstr"
+                              length="255"
+                              name="Year" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output]"
+                          isErrorOut="true"
+                          name="Error output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[Region]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[Region]"
+                              name="Region" />
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[Sub Region]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[Sub Region]"
+                              name="Sub Region" />
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[Country]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[Country]"
+                              name="Country" />
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[Count]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[Count]"
+                              name="Count" />
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[Rate]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[Rate]"
+                              name="Rate" />
+                            <outputColumn
+                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[Year]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Error output].Columns[Year]"
+                              name="Year" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
                     <component
                       refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name"
                       componentClassID="Microsoft.DerivedColumn"
@@ -193,13 +988,13 @@
                                   containsID="true"
                                   dataType="System.String"
                                   description="Derived Column Expression"
-                                  name="Expression">(DT_WSTR,255)@[User::currentUNCrimeFileName]</property>
+                                  name="Expression">(DT_WSTR,255)@[User::currentUNCrimeAzureBlobPath]</property>
                                 <property
                                   containsID="true"
                                   dataType="System.String"
                                   description="Derived Column Friendly Expression"
                                   expressionType="Notify"
-                                  name="FriendlyExpression">(DT_WSTR,255)@[User::currentUNCrimeFileName]</property>
+                                  name="FriendlyExpression">(DT_WSTR,255)@[User::currentUNCrimeAzureBlobPath]</property>
                               </properties>
                             </outputColumn>
                           </outputColumns>
@@ -223,227 +1018,6 @@
                               refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                               dataType="i4"
                               lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                              name="ErrorColumn"
-                              specialFlags="2" />
-                          </outputColumns>
-                          <externalMetadataColumns />
-                        </output>
-                      </outputs>
-                    </component>
-                    <component
-                      refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file"
-                      componentClassID="Microsoft.FlatFileSource"
-                      contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                      description="Flat File Source"
-                      localeId="1033"
-                      name="FFC UNCrime file"
-                      usesDispositions="true"
-                      version="1">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Specifies whether zero-length columns are treated as null."
-                          name="RetainNulls">false</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
-                          name="FileNameColumnName"></property>
-                      </properties>
-                      <connections>
-                        <connection
-                          refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Connections[FlatFileConnection]"
-                          connectionManagerID="Package.ConnectionManagers[FFC_UNCrime]"
-                          connectionManagerRefId="Package.ConnectionManagers[FFC_UNCrime]"
-                          name="FlatFileConnection" />
-                      </connections>
-                      <outputs>
-                        <output
-                          refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output]"
-                          name="Flat File Source Output">
-                          <outputColumns>
-                            <outputColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Region]"
-                              dataType="wstr"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Region]"
-                              length="255"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Region]"
-                              name="Region"
-                              truncationRowDisposition="FailComponent">
-                              <properties>
-                                <property
-                                  dataType="System.Boolean"
-                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                                  name="FastParse">false</property>
-                                <property
-                                  dataType="System.Boolean"
-                                  description="Indicates whether the data is in binary format."
-                                  name="UseBinaryFormat">false</property>
-                              </properties>
-                            </outputColumn>
-                            <outputColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Sub Region]"
-                              dataType="wstr"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Sub Region]"
-                              length="255"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Sub Region]"
-                              name="Sub Region"
-                              truncationRowDisposition="FailComponent">
-                              <properties>
-                                <property
-                                  dataType="System.Boolean"
-                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                                  name="FastParse">false</property>
-                                <property
-                                  dataType="System.Boolean"
-                                  description="Indicates whether the data is in binary format."
-                                  name="UseBinaryFormat">false</property>
-                              </properties>
-                            </outputColumn>
-                            <outputColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Country]"
-                              dataType="wstr"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Country]"
-                              length="255"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Country]"
-                              name="Country"
-                              truncationRowDisposition="FailComponent">
-                              <properties>
-                                <property
-                                  dataType="System.Boolean"
-                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                                  name="FastParse">false</property>
-                                <property
-                                  dataType="System.Boolean"
-                                  description="Indicates whether the data is in binary format."
-                                  name="UseBinaryFormat">false</property>
-                              </properties>
-                            </outputColumn>
-                            <outputColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Count]"
-                              dataType="wstr"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Count]"
-                              length="255"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Count]"
-                              name="Count"
-                              truncationRowDisposition="FailComponent">
-                              <properties>
-                                <property
-                                  dataType="System.Boolean"
-                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                                  name="FastParse">false</property>
-                                <property
-                                  dataType="System.Boolean"
-                                  description="Indicates whether the data is in binary format."
-                                  name="UseBinaryFormat">false</property>
-                              </properties>
-                            </outputColumn>
-                            <outputColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Rate]"
-                              dataType="wstr"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Rate]"
-                              length="255"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Rate]"
-                              name="Rate"
-                              truncationRowDisposition="FailComponent">
-                              <properties>
-                                <property
-                                  dataType="System.Boolean"
-                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                                  name="FastParse">false</property>
-                                <property
-                                  dataType="System.Boolean"
-                                  description="Indicates whether the data is in binary format."
-                                  name="UseBinaryFormat">false</property>
-                              </properties>
-                            </outputColumn>
-                            <outputColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Year]"
-                              dataType="wstr"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Year]"
-                              length="255"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Year]"
-                              name="Year"
-                              truncationRowDisposition="FailComponent">
-                              <properties>
-                                <property
-                                  dataType="System.Boolean"
-                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                                  name="FastParse">false</property>
-                                <property
-                                  dataType="System.Boolean"
-                                  description="Indicates whether the data is in binary format."
-                                  name="UseBinaryFormat">false</property>
-                              </properties>
-                            </outputColumn>
-                          </outputColumns>
-                          <externalMetadataColumns
-                            isUsed="True">
-                            <externalMetadataColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Region]"
-                              dataType="wstr"
-                              length="255"
-                              name="Region" />
-                            <externalMetadataColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Sub Region]"
-                              dataType="wstr"
-                              length="255"
-                              name="Sub Region" />
-                            <externalMetadataColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Country]"
-                              dataType="wstr"
-                              length="255"
-                              name="Country" />
-                            <externalMetadataColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Count]"
-                              dataType="wstr"
-                              length="255"
-                              name="Count" />
-                            <externalMetadataColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Rate]"
-                              dataType="wstr"
-                              length="255"
-                              name="Rate" />
-                            <externalMetadataColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].ExternalColumns[Year]"
-                              dataType="wstr"
-                              length="255"
-                              name="Year" />
-                          </externalMetadataColumns>
-                        </output>
-                        <output
-                          refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output]"
-                          isErrorOut="true"
-                          name="Flat File Source Error Output">
-                          <outputColumns>
-                            <outputColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                              codePage="65001"
-                              dataType="text"
-                              description="Flat File Source Error Output Column"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                              name="Flat File Source Error Output Column" />
-                            <outputColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                              dataType="i4"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                              name="ErrorCode"
-                              specialFlags="1" />
-                            <outputColumn
-                              refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                              dataType="i4"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                               name="ErrorColumn"
                               specialFlags="2" />
                           </outputColumns>
@@ -529,42 +1103,42 @@
                               cachedLength="255"
                               cachedName="Region"
                               externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Region]" />
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Region]" />
                             <inputColumn
                               refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Country]"
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Country"
                               externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Country]" />
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Country]" />
                             <inputColumn
                               refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Count]"
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Count"
                               externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Count]"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Count]" />
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Count]" />
                             <inputColumn
                               refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Rate]"
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Rate"
                               externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rate]"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Rate]" />
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Rate]" />
                             <inputColumn
                               refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Year]"
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Year"
                               externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Year]" />
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Year]" />
                             <inputColumn
                               refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sub Region]"
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Sub Region"
                               externalMetadataColumnId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubRegion]"
-                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output].Columns[Sub Region]" />
+                              lineageId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output].Columns[Sub Region]" />
                             <inputColumn
                               refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FileName]"
                               cachedDataType="wstr"
@@ -666,10 +1240,10 @@
                       name="Derived Column Output"
                       startId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Outputs[Derived Column Output]" />
                     <path
-                      refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped.Paths[Flat File Source Output]"
+                      refId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped.Paths[Output]"
                       endId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name.Inputs[Derived Column Input]"
-                      name="Flat File Source Output"
-                      startId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file.Outputs[Flat File Source Output]" />
+                      name="Output"
+                      startId="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file.Outputs[Output]" />
                   </paths>
                 </pipeline>
               </DTS:ObjectData>
@@ -678,10 +1252,10 @@
           <DTS:ForEachVariableMappings>
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{ACA952B0-484E-40C6-8ECB-9271B3E46C0D}"
-              DTS:ObjectName="{ACA952B0-484E-40C6-8ECB-9271B3E46C0D}"
+              DTS:DTSID="{AC9EDDE4-46B1-4E1B-A931-654C7687F63A}"
+              DTS:ObjectName="{AC9EDDE4-46B1-4E1B-A931-654C7687F63A}"
               DTS:ValueIndex="0"
-              DTS:VariableName="User::currentUNCrimeFileName" />
+              DTS:VariableName="User::currentUNCrimeAzureBlobPath" />
           </DTS:ForEachVariableMappings>
         </DTS:Executable>
       </DTS:Executables>
@@ -739,7 +1313,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="308,42"
           Id="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped"
@@ -808,6 +1382,17 @@
             </mssge:FontInfo>
           </AnnotationLayout.FontInfo>
         </AnnotationLayout>
+        <NodeLayout
+          Size="308,42"
+          Id="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped"
+          TopLeft="5.5,19.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="318,117"
+          Size="318,160"
+          Id="Package\FLC For each file on UNCrime data"
+          TopLeft="663,395" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -817,10 +1402,6 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="158,42"
-          Id="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file"
-          TopLeft="169,77" />
-        <NodeLayout
           Size="201,42"
           Id="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name"
           TopLeft="143,148" />
@@ -828,28 +1409,6 @@
           Size="171,42"
           Id="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination"
           TopLeft="163,218" />
-        <EdgeLayout
-          Id="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped.Paths[Flat File Source Output]"
-          TopLeft="245.75,119">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,29"
-              Start="0,0"
-              End="0,21.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped.Paths[Derived Column Output]"
           TopLeft="246,190">
@@ -872,6 +1431,32 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="160,42"
+          Id="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file"
+          TopLeft="165,65" />
+        <EdgeLayout
+          Id="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped.Paths[Output]"
+          TopLeft="244.25,107">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -885,6 +1470,82 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\FFC UNCrime file"
+          TopLeft="169,77" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\DCol UNCrime_File_Name"
+          TopLeft="143,148" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\OLE DB Destination"
+          TopLeft="163,218" />
+        <EdgeLayout
+          Id="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped.Paths[Derived Column Output]"
+          TopLeft="246,190">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped.Paths[Flat File Source Output]"
+          TopLeft="245.75,119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC Load data to staging\FLC For each file on UNCrime data\DFT Load from File to staging UNCrime_untyped\ABS UNCrime file">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

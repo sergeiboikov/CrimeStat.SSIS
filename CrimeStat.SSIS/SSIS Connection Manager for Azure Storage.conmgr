@@ -1,0 +1,13 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SSIS Connection Manager for Azure Storage"
+  DTS:DTSID="{E7916D07-F2A1-4AC3-8B44-C9724B0A156B}"
+  DTS:CreationName="AzureStorage">
+  <DTS:ObjectData>
+    <AzureStorageConnectionManager
+      ConnectionString="AccountName=crimestatstacsbdev;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;">
+      <AccountKey
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJMjdINlNyUuNS4TIkeZ2QAAAAAACAAAAAAADZgAAwAAAABAAAABIqL79xoJlnDzGH8ItKIJxAAAAAASAAACgAAAAEAAAAFHbSYnuEZ6a2OTKVg31xQGAAAAAxv98i0flqH4XHYDEH+Hi5UDnso8xh2OaN3XWP8ezLtDgEVK7JMUOdiP9L0ZzOx29S5MTa3LrtiMFBNQs/mLR7Wl18IroQQCLOytW9jOGyFsBeOlJnzC3Rt2JxdFMGY1e8BA6SMXkbeQfn2/yYF3ADNgXDrNwtNgcQPgFMaBgvlYUAAAAp7k/Bhe6bTqHWYYvu8pILCpNv+E=</AccountKey>
+    </AzureStorageConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

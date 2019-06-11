@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Staging_Load_Countries"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{55F45714-0711-489A-9A4D-827315EBF5ED}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{CD14286F-939D-4697-A56D-C1092F6C2819}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -164,6 +164,327 @@
             <pipeline
               version="1">
               <components>
+                <component
+                  refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="© Microsoft Corporation; All Rights Reserved;"
+                  description="Extracts data from a blob in Azure Storage. The supported file formats are: Text and Avro."
+                  name="ABS Countries"
+                  usesDispositions="true"
+                  validateExternalMetadata="False">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The name of blob container"
+                      expressionType="Notify"
+                      name="Blob Container">crimestat-sourcefiles</property>
+                    <property
+                      dataType="System.String"
+                      description="The full name of blob"
+                      expressionType="Notify"
+                      name="Blob Name">CrimeStat.Source.Countries/PreparedToUpload/ISOcountries.csv</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The format of blob file"
+                      name="Blob Format"
+                      typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzBlobFormatEnumStringConverter">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Compress File"
+                      name="Compress File">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The compression type"
+                      name="Compression Type"
+                      typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzCompressionTypeEnumStringConverter">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The compression level"
+                      name="Compression Level"
+                      typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzCompressionLevelEnumStringConverter">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The character used to delimit columns in text file"
+                      name="Column Delimiter">,</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Column names in the first data row"
+                      name="First Row as Column Names">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">AzBlobSrc</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Connections[Azure Storage]"
+                      connectionManagerID="{E7916D07-F2A1-4AC3-8B44-C9724B0A156B}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SSIS Connection Manager for Azure Storage]"
+                      description="Connection Manager for Azure Storage"
+                      name="Azure Storage" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output]"
+                      name="Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[name]"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[name]"
+                          name="name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[alpha-2]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[alpha-2]"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[alpha-2]"
+                          name="alpha-2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[alpha-3]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[alpha-3]"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[alpha-3]"
+                          name="alpha-3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[country-code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[country-code]"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[country-code]"
+                          name="country-code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[iso_3166-2]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[iso_3166-2]"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[iso_3166-2]"
+                          name="iso_3166-2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[region]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[region]"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[region]"
+                          name="region"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[sub-region]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[sub-region]"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[sub-region]"
+                          name="sub-region"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[intermediate-region]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[intermediate-region]"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[intermediate-region]"
+                          name="intermediate-region"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[region-code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[region-code]"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[region-code]"
+                          name="region-code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[sub-region-code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[sub-region-code]"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[sub-region-code]"
+                          name="sub-region-code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[intermediate-region-code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[intermediate-region-code]"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[intermediate-region-code]"
+                          name="intermediate-region-code"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[name]"
+                          dataType="wstr"
+                          length="255"
+                          name="name" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[alpha-2]"
+                          dataType="wstr"
+                          length="255"
+                          name="alpha-2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[alpha-3]"
+                          dataType="wstr"
+                          length="255"
+                          name="alpha-3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[country-code]"
+                          dataType="wstr"
+                          length="255"
+                          name="country-code" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[iso_3166-2]"
+                          dataType="wstr"
+                          length="255"
+                          name="iso_3166-2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[region]"
+                          dataType="wstr"
+                          length="255"
+                          name="region" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[sub-region]"
+                          dataType="wstr"
+                          length="255"
+                          name="sub-region" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[intermediate-region]"
+                          dataType="wstr"
+                          length="255"
+                          name="intermediate-region" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[region-code]"
+                          dataType="wstr"
+                          length="255"
+                          name="region-code" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[sub-region-code]"
+                          dataType="wstr"
+                          length="255"
+                          name="sub-region-code" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].ExternalColumns[intermediate-region-code]"
+                          dataType="wstr"
+                          length="255"
+                          name="intermediate-region-code" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output]"
+                      isErrorOut="true"
+                      name="Error output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[name]"
+                          name="name" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[alpha-2]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[alpha-2]"
+                          name="alpha-2" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[alpha-3]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[alpha-3]"
+                          name="alpha-3" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[country-code]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[country-code]"
+                          name="country-code" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[iso_3166-2]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[iso_3166-2]"
+                          name="iso_3166-2" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[region]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[region]"
+                          name="region" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[sub-region]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[sub-region]"
+                          name="sub-region" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[intermediate-region]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[intermediate-region]"
+                          name="intermediate-region" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[region-code]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[region-code]"
+                          name="region-code" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[sub-region-code]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[sub-region-code]"
+                          name="sub-region-code" />
+                        <outputColumn
+                          refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[intermediate-region-code]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Error output].Columns[intermediate-region-code]"
+                          name="intermediate-region-code" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
                 <component
                   refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries"
                   componentClassID="Microsoft.FlatFileSource"
@@ -593,77 +914,77 @@
                           cachedLength="255"
                           cachedName="name"
                           externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].ExternalColumns[name]"
-                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries.Outputs[Flat File Source Output].Columns[name]" />
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[name]" />
                         <inputColumn
                           refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].Columns[alpha-2]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="alpha-2"
                           externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].ExternalColumns[alpha-2]"
-                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries.Outputs[Flat File Source Output].Columns[alpha-2]" />
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[alpha-2]" />
                         <inputColumn
                           refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].Columns[alpha-3]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="alpha-3"
                           externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].ExternalColumns[alpha-3]"
-                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries.Outputs[Flat File Source Output].Columns[alpha-3]" />
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[alpha-3]" />
                         <inputColumn
                           refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].Columns[country-code]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="country-code"
                           externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].ExternalColumns[country-code]"
-                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries.Outputs[Flat File Source Output].Columns[country-code]" />
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[country-code]" />
                         <inputColumn
                           refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].Columns[iso_3166-2]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="iso_3166-2"
                           externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].ExternalColumns[iso_3166-2]"
-                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries.Outputs[Flat File Source Output].Columns[iso_3166-2]" />
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[iso_3166-2]" />
                         <inputColumn
                           refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].Columns[region]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="region"
                           externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].ExternalColumns[region]"
-                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries.Outputs[Flat File Source Output].Columns[region]" />
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[region]" />
                         <inputColumn
                           refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].Columns[sub-region]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="sub-region"
                           externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].ExternalColumns[sub-region]"
-                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries.Outputs[Flat File Source Output].Columns[sub-region]" />
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[sub-region]" />
                         <inputColumn
                           refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].Columns[intermediate-region]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="intermediate-region"
                           externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].ExternalColumns[intermediate-region]"
-                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries.Outputs[Flat File Source Output].Columns[intermediate-region]" />
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[intermediate-region]" />
                         <inputColumn
                           refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].Columns[region-code]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="region-code"
                           externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].ExternalColumns[region-code]"
-                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries.Outputs[Flat File Source Output].Columns[region-code]" />
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[region-code]" />
                         <inputColumn
                           refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].Columns[sub-region-code]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="sub-region-code"
                           externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].ExternalColumns[sub-region-code]"
-                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries.Outputs[Flat File Source Output].Columns[sub-region-code]" />
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[sub-region-code]" />
                         <inputColumn
                           refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].Columns[intermediate-region-code]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="intermediate-region-code"
                           externalMetadataColumnId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input].ExternalColumns[intermediate-region-code]"
-                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries.Outputs[Flat File Source Output].Columns[intermediate-region-code]" />
+                          lineageId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output].Columns[intermediate-region-code]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -773,10 +1094,10 @@
               </components>
               <paths>
                 <path
-                  refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped.Paths[Flat File Source Output]"
+                  refId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped.Paths[Output]"
                   endId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped.Inputs[OLE DB Destination Input]"
-                  name="Flat File Source Output"
-                  startId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries.Outputs[Flat File Source Output]" />
+                  name="Output"
+                  startId="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries.Outputs[Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -905,7 +1226,7 @@
     design-time-name="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="230,42"
           Id="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\OLEDB_Table_Country_untyped"
@@ -913,29 +1234,31 @@
         <NodeLayout
           Size="144,42"
           Id="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\FFS Countries"
-          TopLeft="324,63" />
+          TopLeft="71,63" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries"
+          TopLeft="319,64" />
         <EdgeLayout
-          Id="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped.Paths[Flat File Source Output]"
-          TopLeft="395.5,105">
+          Id="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped.Paths[Output]"
+          TopLeft="393.25,106">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,74"
+              EndConnector="0,73"
               Start="0,0"
-              End="0,66.5">
+              End="0,65.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,66.5" />
+                    End="0,65.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -951,6 +1274,14 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC Load data to staging\DFT Load from File to staging Country_untyped\ABS Countries">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
